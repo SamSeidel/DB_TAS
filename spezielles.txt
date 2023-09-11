@@ -1,5 +1,4 @@
 mindestanzahl
-krank ausfall
 dauerverträge
 honorar=teilnehmerkosten ges.
 ersatz kurse
