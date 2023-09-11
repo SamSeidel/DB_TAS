@@ -1,0 +1,16 @@
+mindestanzahl
+krank ausfall
+dauerverträge
+honorar=teilnehmerkosten ges.
+ersatz kurse
+ausfall bei zu wenig teilnehmern. min max teilnehmer und count
+teilnehmer u. betriebe aus dem ausland(ort hat land)
+teilnehmer von außerhalb
+Teilnehmer(Facharbeiter) TAS-F 47(47er Kurs)/ 6(er Zeitraum)
+Teilnehmer(Meister) TAS-M41 / 4
+Kurse haben Themen (Fenster öffnet sich, was im Kurs ist)
+Es gibt Dozentenverträge u. Minijobverträge(bei manchen kursen)
+Rechnungen generieren bevor Kurs startet, aber automatisch vom System müssen erst Rechnungen verschickt werden z.B. 30-40 Tage vorher
+
+
+BEI FRAGEN tas@tbk-solingen.de
