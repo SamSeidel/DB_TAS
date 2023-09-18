@@ -1,7 +1,7 @@
 # Dokumentation
 ## 28/08/23 
   - Gruppenaufteilung
-  - 
+  - Allgemeine besprechung über das Projekt
 
 ## 30/08/23
   - ER-Modell Erstellt
