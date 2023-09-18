@@ -10,10 +10,10 @@
   - Alle ER-Modelle Besprochen und überarbeitet
 
 ## 06/09/23
-  - Leiter der TAS war da und hat uns erklärt wie TAS funktioniert, damit wir das ER-Modell weite ausarbeiten können
+  - Herr Linden war da und hat uns erklärt wie TAS funktioniert, damit wir das ER-Modell weite ausarbeiten können
 
 ## 11/09/23
-  - Nach den vorstellungen von den TAS typen das ER-Modell modifiziert.
+  - Nach den vorstellungen von Herr Linden das ER-Modell modifiziert.
 
 ## 18/09/23
   - Finaler zusammenbau des ER-Modells.
