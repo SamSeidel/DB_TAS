@@ -1,5 +1,12 @@
-# BEASTMODE PROJEKT FÜR DIE COOLE HITO IM DATENNBANKEN PROJEKT FÜR TAS
-* Dicker Cock Mode on
+# TAS-Projekt Datenbanken HITO
+# Mitglieder:
+* Sam Seidel
+* Jonas Burghaus
+* Linus Popp
+* Luis Bregas
+* Robin Nachtigall
+* Collin David Klein
+
 
 ## Zu machen
 - [X] ER-Modell
