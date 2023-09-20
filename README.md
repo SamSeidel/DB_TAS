@@ -20,4 +20,5 @@
   - 3. [ ] Rechnung (Erstellen und Speichern)
   - 4. [ ] Honorarvertrag (Erstellen, Speichern)
   - 5. [ ] Dozent (Eintragen, zuweisen von Kursen und Rechnung, Speichern)
+  - 6. [ ] Anmeldeformular (Teilnehmer, Dozent, Kurs, Rechnung zuweisung)
 - [ ] Dokumentation
