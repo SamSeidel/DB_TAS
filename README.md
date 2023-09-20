@@ -1,5 +1,5 @@
 # TAS-Projekt Datenbanken HITO
-# Mitglieder:
+## Mitglieder:
 * Sam Seidel
 * Jonas Burghaus
 * Linus Popp
