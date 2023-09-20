@@ -21,3 +21,6 @@
   - 5. [ ] Dozent (Eintragen, zuweisen von Kursen und Rechnung speichern)
   - 6. [ ] Anmeldeformular (Teilnehmer, Dozent, Kurs, Rechnung zuweisung)
 - [ ] Dokumentation
+
+> [!NOTE]
+> Alles im Klassentauschverzeichniss unter 'BEASTMODE' gespeichert, sowie auf GitHub 
