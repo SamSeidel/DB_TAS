@@ -1,3 +1,4 @@
+![](taslogo/TASLogo.png)
 # TAS-Projekt Datenbanken HITO
 ## Mitglieder:
 * Sam Seidel
