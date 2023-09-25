@@ -1,4 +1,3 @@
-![TAS-LOGO]([http://url/to/img.png](https://moodle.tbksolingen.de/pluginfile.php/60042/mod_resource/content/0/TAS%20Logo.png))
 # TAS-Projekt Datenbanken HITO
 ## Mitglieder:
 * Sam Seidel
