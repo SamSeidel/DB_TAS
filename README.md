@@ -13,7 +13,8 @@
 - [ ] Anforderungsliste
 - [X] Datenbank (so gut wie fertg)
 - Die Scripte
-  -  >Eine Grafische oberfläche für alles machne. Für alle tabellen gibt es einzelne "tabs" z.b. Schüler. Auf diesen "tabs" kann man entweder einen neuen Schüler erstellen oder von einem Ausgewähltem schüler sich seine Rechnung als .PDF speichern kann usw. <br>
+  -  >Eine Grafische oberfläche für alles machne. Für alle tabellen gibt es einzelne "tabs" z.b. Schüler. Auf diesen "tabs" kann man entweder einen neuen Schüler erstellen oder von einem Ausgewähltem schüler sich seine Rechnung als .PDF speichern kann usw.
+  
      > Einheitliche Grafische overfläche geschalten wenn die Scripte fertig sind.
   - 1. [ ] Grafische Oberfläche
   - 2. [ ] Student (Eitnragen, zuweisen von Kursen und Rechnungen, speichern)
