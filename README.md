@@ -12,7 +12,7 @@
 - [X] ER-Modell
 - [X] Rel. Datenbank Modell
 - [ ] Anforderungsliste
-- [X] Datenbank (so gut wie fertg) <br>
+- [X] Datenbank <br>
 - [ ] Dokumentation
       
 Die Scripte (PHP / javascript)
