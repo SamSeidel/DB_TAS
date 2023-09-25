@@ -26,6 +26,9 @@ Die Scripte (PHP / javascript)
   - 5. [ ] Dozent (Eintragen, zuweisen von Kursen und Rechnung speichern)
   - 6. [ ] Anmeldeformular (Teilnehmer, Dozent, Kurs, Rechnung zuweisung)
 <br>
+**Scripte** <br>
+- Wenn man z.b. auf dem "Tab" schüler ist kann man z.b. alle schüler einer klasse mit einem Dropdownmenü auswählen     von welchen man dann die Rechnung oder so herunterladen kann.  
+  
 
 > [!NOTE]
 > Alles im Klassentauschverzeichniss unter 'BEASTMODE' gespeichert, sowie auf GitHub 
