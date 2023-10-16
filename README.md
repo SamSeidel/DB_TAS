@@ -22,7 +22,7 @@ Die Scripte (PHP / javascript)
   > - Wenn man z.b. auf dem "Tab" schüler ist kann man z.b. alle schüler einer klasse mit einem Dropdownmenü auswählen     von welchen man dann die Rechnung oder so herunterladen kann.  
  
   - 1. [ ] Grafische Oberfläche
-  - 2. [ ] Student (Eitnragen, zuweisen von Kursen und Rechnungen, speichern)
+  - 2. [X] Student (Eitnragen, zuweisen von Kursen und Rechnungen, speichern)
   - 3. [ ] Rechnung (Erstellen und Speichern. Bestimmte abrufen und als .PDF speichern)
   - 4. [ ] Honorarvertrag (Erstellen, Speichern)
   - 5. [ ] Dozent (Eintragen, zuweisen von Kursen und Rechnung speichern)
