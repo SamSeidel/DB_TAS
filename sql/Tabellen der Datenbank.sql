@@ -5,7 +5,7 @@ CREATE TABLE Betrieb (
     Strasse varchar(64),
     Hausnummer int,
     Rechnungsmail varchar(128)
-)
+),
 
 CREATE TABLE Teilnehmer(
 	ID_Teilnehmer int PRIMARY KEY AUTO_INCREMENT,
@@ -19,14 +19,14 @@ CREATE TABLE Teilnehmer(
     Hausnummer int,
     ID_Betrieb int NOT NULL,
     FOREIGN KEY (ID_Betrieb) REFERENCES betrieb(ID_Betrieb)
-)
+),
 
 CREATE TABLE Ort(
 	ID_Ort int PRIMARY KEY AUTO_INCREMENT,
     PLZ int,
     Stadt varchar(86),
     Land varchar(87)
-)
+),
 
 CREATE TABLE Kurs (
 	ID_Kurs int PRIMARY KEY AUTO_INCREMENT,
@@ -39,7 +39,7 @@ CREATE TABLE Kurs (
     KursEnde DATETIME,
     ID_Ort int NOT NULL,
     FOREIGN KEY (ID_ORT) REFERENCES ort(ID_Ort)
-)
+),
 
 CREATE TABLE Rechnung (
 	ID_Rechnung int PRIMARY KEY AUTO_INCREMENT,
@@ -53,7 +53,7 @@ CREATE TABLE Rechnung (
     FOREIGN KEY (ID_Teilnehmer) REFERENCES teilnehmer(ID_Teilnehmer),
     ID_Kurs int NOT NULL,
     FOREIGN KEY (ID_Kurs) REFERENCES kurs(ID_Kurs)
-)
+),
 
 CREATE TABLE Dozent (
 	ID_Dozent int PRIMARY KEY AUTO_INCREMENT,
@@ -66,7 +66,7 @@ CREATE TABLE Dozent (
     Kürzel varchar(32),
     Strasse varchar(128),
     Hausnummer int
-)
+),
 
 CREATE TABLE Dozentenvertrag (
 	ID_Honorarvertrag int PRIMARY KEY AUTO_INCREMENT,
@@ -76,7 +76,7 @@ CREATE TABLE Dozentenvertrag (
     Honorar varchar(128),
     ID_Dozent int NOT NULL,
     FOREIGN KEY (ID_Dozent) REFERENCES dozent(ID_Dozent)
-)
+),
 
 CREATE TABLE Kurs_Teilnehmer( 
 	Anfangszeitpunkt DATETIME,
@@ -85,7 +85,7 @@ CREATE TABLE Kurs_Teilnehmer(
     FOREIGN KEY (ID_Kurs) REFERENCES kurs(ID_Kurs),
     ID_Teilnehmer int NOT NULL,
     FOREIGN KEY (ID_Teilnehmer) REFERENCES teilnehmer(ID_Teilnehmer)
-)
+),
 
 CREATE TABLE kurs_dozentenrechnung (
     ID_DozentenRechnung int PRIMARY KEY AUTO_INCREMENT,
@@ -96,7 +96,7 @@ CREATE TABLE kurs_dozentenrechnung (
     FOREIGN KEY(ID_Dozent) REFERENCES dozent(ID_Dozent),
     ID_Kurs int,
     FOREIGN KEY (ID_Kurs) REFERENCES kurs(ID_Kurs)
-)
+),
 
 CREATE TABLE kurs_dozent (
     Datum_Beginn DATETIME,
@@ -106,14 +106,14 @@ CREATE TABLE kurs_dozent (
     FOREIGN KEY(ID_Dozent) REFERENCES dozent(ID_Dozent),
     ID_Kurs int,
     FOREIGN KEY(ID_Kurs) REFERENCES kurs(ID_Kurs)
-)
+),
 
 CREATE TABLE teilnehmer_ort (
     ID_Teilnehmer int,
     FOREIGN KEY(ID_Teilnehmer) REFERENCES teilnehmer(ID_Teilnehmer),
 	ID_ORt int,
     FOREIGN KEY(ID_Ort) REFERENCES ort(ID_Ort)
-)
+),
 
 CREATE TABLE betrieb_ort (
     ID_Betrieb int,
