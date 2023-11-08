@@ -27,6 +27,7 @@ Die Scripte (PHP / javascript)
   - 4. [ ] Honorarvertrag (Erstellen, Speichern)
   - 5. [ ] Dozent (Eintragen, zuweisen von Kursen und Rechnung speichern)
   - 6. [ ] Anmeldeformular (Teilnehmer, Dozent, Kurs, Rechnung zuweisung)
+  - 7. [ ] Gesamte UI machen für die Administration und die einzelnen anmeldungen für normale Menschen machen
 <br>
 
 > [!NOTE]
