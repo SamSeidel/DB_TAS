@@ -3,7 +3,7 @@
 ## Mitglieder:
 * Sam Seidel
 * Jonas Burghaus
-* Linus Popp
+* Linus Alexander Poop
 * Luis Bregas
 * Robin Nachtigall
 * Collin David Klein
