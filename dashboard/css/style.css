@@ -117,8 +117,7 @@ select {
 
 /* Für die admi sachen*/
 
-table, th, td {
-    border: 1px solid;
+table, th, td, tr {
     justify-content: center;
     text-align: center;
 }

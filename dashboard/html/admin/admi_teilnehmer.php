@@ -23,14 +23,13 @@
     </div>
     <?php
         include '../../php/include/dbinclude.php';
-        //try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $stmt = $conn->prepare("SELECT * FROM teilnehmer");
         $stmt->execute();
     ?>
     <div><br>
-            <table style="width: 100%"> 
+            <table style="width: 100%;"> 
                     <th> ID </th>
                     <th> Anrede </th>
                     <th> Vorname </th>
@@ -58,25 +57,29 @@
                             
                             <td style="display:flex;"> 
                                 <form action="admi_teilnehmer_löschen.php" method="POST">
-                                    <button type="submit" name="id_teilnehmer" value="<?php echo $row["ID_Teilnehmer"]?>">Löschen</button>
+                                    <button type="submit" name="id_teilnehmer" value="<?php echo $row["ID_Teilnehmer"]?>" style="border:none; background-color: #ececec;">
+                                            <img src="../../res/entfernen.png" style="width:28px; height:28px; background-color: #ececec;">
+                                        </button>
                                 </form>
                             </td>
                         </tr>
 
                         <tr> 
-                            <td> <input type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black"></td>
-                            <td> <input type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black"></td>
-                            <td> <input type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black"></td>
-                            <td> <input type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black"></td>
-                            <td> <input type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black"></td>
-                            <td> <input type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black"></td>
-                            <td> <input type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black"></td>
-                            <td> <input type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black"></td>
-                            <td> <input type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black"></td>
+                        <form action="admi_teilnehmer_aendern.php" method="POST">
+                            <td> <input name="id" type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black; width: 90% !important;"></td>
+                            <td> <input name="anrede" type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black; width: 90% !important;"></td>
+                            <td> <input name="vorname" type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black; width: 90% !important;"></td>
+                            <td> <input name="nachname" type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black; width: 90% !important;"></td>
+                            <td> <input name="email" type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black; width: 90% !important;"></td>
+                            <td> <input name="telnummer" type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black; width: 90% !important;"></td>
+                            <td> <input name="geburtsdatum" type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black; width: 90% !important;"></td>
+                            <td> <input name="strasse" type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black; width: 90% !important;"></td>
+                            <td> <input name="hausnr" type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black; width: 90% !important;"></td>
                             
                             <td>  
-                                <form action="admi_teilnehmer_ändern.php" method="POST">
-                                    <button type="submit" name="id_teilnehmer" value="<?php echo $row["ID_Teilnehmer"]?>">Ändern</button>
+                                    <button type="submit" name="id_teilnehmer" value="<?php echo $row["ID_Teilnehmer"]?>" style="border:none; background-color: #ececec;"> 
+                                            <img src="../../res/recycling.png" style="width:28px; height:28px;">
+                                        </button>
                                 </form>
                             </td>
                         </tr>
