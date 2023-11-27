@@ -40,54 +40,57 @@
                     <th> Strasse </th>
                     <th> Hausnummer </th>
                     <th></th>
+                    <th></th>
 
                 <?php 
                     while($row = $stmt->fetch()) {
                         ?>
-                        <tr>
-                            <td> <?php echo $row["ID_Teilnehmer"]?></td>
-                            <td> <?php echo $row["Anrede"]?></td>
-                            <td> <?php echo $row["Vorname"]?></td>
-                            <td> <?php echo $row["Nachname"]?></td>
-                            <td> <?php echo $row["Email"]?></td>
-                            <td> <?php echo $row["Telefonnummer"]?></td>
-                            <td> <?php echo $row["Geburtsdatum"]?></td>
-                            <td> <?php echo $row["Strasse"]?></td>
-                            <td> <?php echo $row["Hausnummer"]?></td>
-                            
-                            <td style="display:flex;"> 
-                                <form action="admi_teilnehmer_löschen.php" method="POST">
-                                    <button type="submit" name="id_teilnehmer" value="<?php echo $row["ID_Teilnehmer"]?>" style="border:none; background-color: #ececec;">
-                                            <img src="../../res/entfernen.png" style="width:28px; height:28px; background-color: #ececec;">
-                                        </button>
-                                </form>
-                            </td>
-                        </tr>
 
                         <tr> 
                         <form action="admi_teilnehmer_aendern.php" method="POST">
-                            <td> <input name="id" type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black; width: 90% !important;"></td>
-                            <td> <input name="anrede" type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black; width: 90% !important;"></td>
-                            <td> <input name="vorname" type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black; width: 90% !important;"></td>
-                            <td> <input name="nachname" type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black; width: 90% !important;"></td>
-                            <td> <input name="email" type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black; width: 90% !important;"></td>
-                            <td> <input name="telnummer" type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black; width: 90% !important;"></td>
-                            <td> <input name="geburtsdatum" type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black; width: 90% !important;"></td>
-                            <td> <input name="strasse" type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black; width: 90% !important;"></td>
-                            <td> <input name="hausnr" type="text" style="text-align: center; border-radius: 12px; border: 1px solid Black; width: 90% !important;"></td>
+                            <td> <input value="<?php echo $row["ID_Teilnehmer"]?>" name="id" type="text" class="edit"></td>
+                            <td> <input value="<?php echo $row["Anrede"]?>" name="anrede" type="text" class="edit"></td>
+                            <td> <input value="<?php echo $row["Vorname"]?>" name="vorname" type="text" class="edit"></td>
+                            <td> <input value="<?php echo $row["Nachname"]?>" name="nachname" type="text" class="edit"></td>
+                            <td> <input value="<?php echo $row["Email"]?>" name="email" type="text" class="edit"></td>
+                            <td> <input value="<?php echo $row["Telefonnummer"]?>" name="telnummer" type="text" class="edit"></td>
+                            <td> <input value="<?php echo $row["Geburtsdatum"]?>" name="geburtsdatum" type="text" class="edit"></td>
+                            <td> <input value="<?php echo $row["Strasse"]?>" name="strasse" type="text" class="edit"></td>
+                            <td> <input value="<?php echo $row["Hausnummer"]?>" name="hausnr" type="text" class="edit"></td>
                             
                             <td>  
                                     <button type="submit" name="id_teilnehmer" value="<?php echo $row["ID_Teilnehmer"]?>" style="border:none; background-color: #ececec;"> 
-                                            <img src="../../res/recycling.png" style="width:28px; height:28px;">
-                                        </button>
+                                            <img src="../../res/recycling.png" style="width:24px; height:24px;">
+                                    </button>
+                                    </form>
+                            </td>
+    
+                            <td>
+
+                                <form action="admi_teilnehmer_löschen.php" method="POST">
+                                    <button type="submit" name="id_teilnehmer" value="<?php echo $row["ID_Teilnehmer"]?>" style="border:none; background-color: #ececec;">
+                                            <img src="../../res/entfernen.png" style="width:24px; height:24px; background-color: #ececec;">
+                                    </button>
                                 </form>
                             </td>
                         </tr>
                         <?php
                     }
                 ?>
+            <!-- <tr> 
+                <td style=" border-top: 1px solid black; border-collapse: collapse;"> </td>
+                <td style=" border-top: 1px solid black; border-collapse: collapse;"> </td>
+                <td style=" border-top: 1px solid black; border-collapse: collapse;"> </td>
+                <td style=" border-top: 1px solid black; border-collapse: collapse;"> </td>
+                <td style=" border-top: 1px solid black; border-collapse: collapse;"> </td>
+                <td style=" border-top: 1px solid black; border-collapse: collapse;"> </td>
+                <td style=" border-top: 1px solid black; border-collapse: collapse;"> </td>
+                <td style=" border-top: 1px solid black; border-collapse: collapse;"> </td>
+                <td style=" border-top: 1px solid black; border-collapse: collapse;"> </td>
+                <td style=" border-top: 1px solid black; border-collapse: collapse;"> </td>
+            </tr>-->
 
-            </table>
+        </table>
     </div>
 </body>
 </html>
