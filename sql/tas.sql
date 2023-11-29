@@ -95,9 +95,6 @@ CREATE TABLE `dozent` (
   `plz` int(10) DEFAULT NULL,
   `stadt` varchar(255) DEFAULT NULL,
   `land` varchar(255) DEFAULT NULL,
-  `minAnzahl` int(11) DEFAULT NULL,
-  `maxAnzahl` int(11) DEFAULT NULL,
-  `Archiert` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -167,7 +164,10 @@ CREATE TABLE `kurs` (
   `KursEnde` datetime DEFAULT NULL,
   `plz` int(11) DEFAULT NULL,
   `stadt` varchar(255) DEFAULT NULL,
-  `land` varchar(255) DEFAULT NULL
+  `land` varchar(255) DEFAULT NULL,
+  `minAnzahl` int(11) DEFAULT NULL,
+  `maxAnzahl` int(11) DEFAULT NULL,
+  `Archiviert` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
