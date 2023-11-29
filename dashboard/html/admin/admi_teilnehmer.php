@@ -47,8 +47,8 @@
                         ?>
 
                         <tr> 
-                        <form action="admi_teilnehmer_aendern.php" method="POST">
-                            <td> <input value="<?php echo $row["ID_Teilnehmer"]?>" name="id" type="text" class="edit"></td>
+                        <form action="db/admi_teilnehmer_aendern.php" method="POST">
+                            <td> <input value="<?php echo $row["ID_Teilnehmer"]?>" readonly name="id" type="text" class="edit"></td>
                             <td> <input value="<?php echo $row["Anrede"]?>" name="anrede" type="text" class="edit"></td>
                             <td> <input value="<?php echo $row["Vorname"]?>" name="vorname" type="text" class="edit"></td>
                             <td> <input value="<?php echo $row["Nachname"]?>" name="nachname" type="text" class="edit"></td>
@@ -64,10 +64,8 @@
                                     </button>
                                     </form>
                             </td>
-    
                             <td>
-
-                                <form action="admi_teilnehmer_löschen.php" method="POST">
+                                <form action="db/admi_teilnehmer_löschen.php" method="POST">
                                     <button type="submit" name="id_teilnehmer" value="<?php echo $row["ID_Teilnehmer"]?>" style="border:none; background-color: #ececec;">
                                             <img src="../../res/entfernen.png" style="width:24px; height:24px; background-color: #ececec;">
                                     </button>
@@ -77,19 +75,6 @@
                         <?php
                     }
                 ?>
-            <!-- <tr> 
-                <td style=" border-top: 1px solid black; border-collapse: collapse;"> </td>
-                <td style=" border-top: 1px solid black; border-collapse: collapse;"> </td>
-                <td style=" border-top: 1px solid black; border-collapse: collapse;"> </td>
-                <td style=" border-top: 1px solid black; border-collapse: collapse;"> </td>
-                <td style=" border-top: 1px solid black; border-collapse: collapse;"> </td>
-                <td style=" border-top: 1px solid black; border-collapse: collapse;"> </td>
-                <td style=" border-top: 1px solid black; border-collapse: collapse;"> </td>
-                <td style=" border-top: 1px solid black; border-collapse: collapse;"> </td>
-                <td style=" border-top: 1px solid black; border-collapse: collapse;"> </td>
-                <td style=" border-top: 1px solid black; border-collapse: collapse;"> </td>
-            </tr>-->
-
         </table>
     </div>
 </body>

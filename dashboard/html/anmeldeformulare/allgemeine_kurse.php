@@ -23,7 +23,6 @@
         $stmt = $conn->prepare("SELECT ID_Betrieb, BetriebsName FROM betrieb");
         $stmt->execute();
 
-                // set the resulting array to associative
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
                 
 
