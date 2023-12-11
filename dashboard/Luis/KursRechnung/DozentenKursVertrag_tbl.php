@@ -39,22 +39,32 @@ try {
                 <td> <input value="<?php echo $row["Datum_Beginn"] ?>" name="Beginn" type="text" class="edit"></td>
                 <td> <input value="<?php echo $row["Datum_Ende"] ?>" name="Ende" type="text" class="edit"></td>
                 <td> <input value="<?php echo $row["Anzahl_Einheiten"] ?>" name="Einheiten" type="text" class="edit"></td>
+                
+                
                 <td>
                 <input list="dozenten" name="dozent">
-  <datalist id="dozenten">
-                        <option select disabled value="-1">Wähle Deinen Dozenten</option>
-                        <option value="<?php echo $row['ID_Dozent'] ?>"><?php echo $row["Kürzel"] ?></option>
-                    </select>
-                </td>
 
+  <datalist id="dozenten">
+  <?php while ($row2 = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
+                        <option select disabled value="-1">Wähle Deinen Dozenten</option>
+                        <option value="<?php echo $row2['ID_Dozent'] ?>"><?php echo $row2["Kürzel"] ?></option>
+                    </select>
+                    <?php } ?>
+                </td>
+               
                 <td>
                 <input list="kurse" name="kurs">
+
   <datalist id="kurse">
+  <?php while ($row3 = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
                         <option select disabled value="-1">Wähle Deinen Kurs</option>
-                        <option value="<?php echo $row['ID_Kurs'] ?>"><?php echo $row["Kurstyp"] ?></option>
+                        <option value="<?php echo $row3['ID_Kurs'] ?>"><?php echo $row3["Kurstyp"] ?></option>
                     </select>
+                    <?php } ?>
                 </td>
                 
+              
+
                 <td>
                     <form action="Kurs_DOZ_Rechnung_AND.php" method="POST">
                         <button type="submit" name="ID_rechnung" value="<?php echo $row["ID_Dozent"] ?>" style="border:none; background-color: #ececec;">
@@ -63,13 +73,6 @@ try {
                     </form>
                 </td>
 
-                <td>
-                    <form action="DozenternKursvertrag_Lösch.php" method="POST">
-                        <button type="submit" name="ID_rechnung" value="<?php echo $row["ID_Kurs"] ?>" style="border:none; background-color: #ececec;">
-                            <img src="../../res/entfernen.png" style="width:24px; height:24px; background-color: #ececec;">
-                        </button>
-                    </form>
-                </td>
             </tr>
         <?php } ?>
     </table>
