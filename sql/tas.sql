@@ -95,7 +95,8 @@ CREATE TABLE `dozent` (
   `plz` int(10) DEFAULT NULL,
   `stadt` varchar(255) DEFAULT NULL,
   `land` varchar(255) DEFAULT NULL,
-  `geloescht` tinyint(1) DEFAULT NULL
+  `geloescht` tinyint(1) DEFAULT 0,
+  `krank` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -252,7 +253,8 @@ CREATE TABLE `teilnehmer` (
   `stadt` varchar(255) DEFAULT NULL,
   `land` varchar(255) DEFAULT NULL,
    `Bestätigt` tinyint(1) DEFAULT 0,
-  `geloescht` tinyint(1) DEFAULT NULL
+  `geloescht` tinyint(1) DEFAULT 0,
+  `krank` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
