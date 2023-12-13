@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 15. Nov 2023 um 14:14
+-- Erstellungszeit: 13. Dez 2023 um 08:55
 -- Server-Version: 10.4.22-MariaDB
 -- PHP-Version: 8.1.2
 
@@ -11,7 +11,6 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-CREATE DATABASE tas;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -103,36 +102,36 @@ CREATE TABLE `dozent` (
 -- Daten für Tabelle `dozent`
 --
 
-INSERT INTO `dozent` (`ID_Dozent`, `Anrede`, `Vorname`, `Nachname`, `Geburtsdatum`, `Telefonnummer`, `Steuernummer`, `Kürzel`, `Strasse`, `Hausnummer`, `plz`, `stadt`, `land`) VALUES
-(1, 'Herr', 'Michael', 'Schmidt', '1980-05-15', '123-456-7890', 'DE123456789', 'SCHM', 'Hauptstraße', 123, NULL, NULL, NULL),
-(2, 'Frau', 'Anna', 'Müller', '1992-08-21', '987-654-3210', 'DE987654321', 'MUEL', 'Musterweg', 456, NULL, NULL, NULL),
-(3, 'Herr', 'Thomas', 'Meier', '1975-03-10', '555-123-4567', 'DE555123456', 'MEIE', 'Eichenallee', 789, NULL, NULL, NULL),
-(4, 'Frau', 'Christine', 'Wagner', '1988-11-03', '888-555-1234', 'DE888555123', 'WAGN', 'Buchenweg', 101, NULL, NULL, NULL),
-(5, 'Herr', 'Andreas', 'Schulz', '1990-09-25', '777-333-2222', 'DE777333222', 'SCHU', 'Lindenstraße', 55, NULL, NULL, NULL),
-(6, 'Herr', 'Markus', 'Koch', '1982-07-14', '111-222-3333', 'DE111222333', 'KOCH', 'Ahornweg', 77, NULL, NULL, NULL),
-(7, 'Frau', 'Sabine', 'Fischer', '1986-04-02', '444-555-6666', 'DE444555666', 'FISC', 'Eschenweg', 22, NULL, NULL, NULL),
-(8, 'Herr', 'Stefan', 'Huber', '1978-12-19', '222-333-4444', 'DE222333444', 'HUBE', 'Kiefernweg', 33, NULL, NULL, NULL),
-(9, 'Herr', 'Sebastian', 'Becker', '1995-01-28', '666-777-8888', 'DE666777888', 'BECK', 'Birkenweg', 44, NULL, NULL, NULL),
-(10, 'Frau', 'Julia', 'Hoffmann', '1991-06-07', '999-888-7777', 'DE999888777', 'HOFF', 'Tannenweg', 66, NULL, NULL, NULL),
-(11, 'Herr', 'Matthias', 'Richter', '1984-02-12', '777-999-1111', 'DE777999111', 'RICH', 'Ulmenweg', 99, NULL, NULL, NULL),
-(12, 'Herr', 'Johannes', 'Kramer', '1987-10-08', '333-666-9999', 'DE333666999', 'KRAM', 'Kastanienweg', 11, NULL, NULL, NULL),
-(13, 'Herr', 'Frank', 'Schneider', '1976-08-31', '444-222-1111', 'DE444222111', 'SCHN', 'Erlenweg', 88, NULL, NULL, NULL),
-(14, 'Herr', 'Daniel', 'Lange', '1983-03-17', '222-111-4444', 'DE222111444', 'LANG', 'Fichtenweg', 77, NULL, NULL, NULL),
-(15, 'Herr', 'Peter', 'Werner', '1993-09-14', '555-444-3333', 'DE555444333', 'WERN', 'Akazienweg', 55, NULL, NULL, NULL),
-(16, 'Herr', 'Christian', 'Schwarz', '1989-05-03', '888-777-6666', 'DE888777666', 'SCHW', 'Hainweg', 33, NULL, NULL, NULL),
-(17, 'Herr', 'Martin', 'Bauer', '1981-07-22', '777-555-2222', 'DE777555222', 'BAUE', 'Weidenweg', 22, NULL, NULL, NULL),
-(18, 'Herr', 'Andreas', 'Schmidt', '1980-10-12', '222-333-4444', 'DE222333444', 'SCHM', 'Kirschweg', 66, NULL, NULL, NULL),
-(19, 'Frau', 'Nicole', 'Meyer', '1990-11-09', '666-777-8888', 'DE666777888', 'MEYE', 'Ebereschenweg', 44, NULL, NULL, NULL),
-(20, 'Herr', 'Max', 'Schulze', '1986-12-04', '555-999-1111', 'DE555999111', 'SCHU', 'Schlehenweg', 99, NULL, NULL, NULL),
-(21, 'Herr', 'Klaus', 'Fuchs', '1984-04-29', '333-666-9999', 'DE333666999', 'FUCH', 'Apfelweg', 11, NULL, NULL, NULL),
-(22, 'Herr', 'Hans', 'Herrmann', '1977-02-15', '777-111-4444', 'DE777111444', 'HERR', 'Brombeerweg', 88, NULL, NULL, NULL),
-(23, 'Herr', 'Oliver', 'Schmitt', '1982-06-18', '222-888-3333', 'DE222888333', 'SCHM', 'Holunderweg', 77, NULL, NULL, NULL),
-(24, 'Frau', 'Lisa', 'Lehmann', '1992-03-26', '444-222-7777', 'DE444222777', 'LEHM', 'Himbeerweg', 55, NULL, NULL, NULL),
-(25, 'Herr', 'Erik', 'Krause', '1988-09-05', '999-777-4444', 'DE999777444', 'KRAU', 'Stachelbeerweg', 33, NULL, NULL, NULL),
-(26, 'Frau', 'Laura', 'Wolf', '1991-08-07', '555-666-3333', 'DE555666333', 'WOLF', 'Johannisbeerweg', 22, NULL, NULL, NULL),
-(27, 'Herr', 'Felix', 'Schreiber', '1985-01-30', '333-444-6666', 'DE333444666', 'SCHR', 'Blaubeerweg', 66, NULL, NULL, NULL),
-(28, 'Frau', 'Nina', 'Baum', '1994-12-23', '666-555-8888', 'DE666555888', 'BAUM', 'Preiselbeerweg', 44, NULL, NULL, NULL),
-(29, 'Herr', 'David', 'Graf', '1983-11-14', '222-888-1111', 'DE222888111', 'GRAF', 'Waldweg', 99, NULL, NULL, NULL);
+INSERT INTO `dozent` (`ID_Dozent`, `Anrede`, `Vorname`, `Nachname`, `Geburtsdatum`, `Telefonnummer`, `Steuernummer`, `Kürzel`, `Strasse`, `Hausnummer`, `plz`, `stadt`, `land`, `geloescht`, `krank`) VALUES
+(1, 'Herr', 'Michael', 'Schmidt', '1980-05-15', '123-456-7890', 'DE123456789', 'SCHM', 'Hauptstraße', 123, NULL, NULL, NULL, 0, 0),
+(2, 'Frau', 'Anna', 'Müller', '1992-08-21', '987-654-3210', 'DE987654321', 'MUEL', 'Musterweg', 456, NULL, NULL, NULL, 0, 0),
+(3, 'Herr', 'Thomas', 'Meier', '1975-03-10', '555-123-4567', 'DE555123456', 'MEIE', 'Eichenallee', 789, NULL, NULL, NULL, 0, 0),
+(4, 'Frau', 'Christine', 'Wagner', '1988-11-03', '888-555-1234', 'DE888555123', 'WAGN', 'Buchenweg', 101, NULL, NULL, NULL, 0, 0),
+(5, 'Herr', 'Andreas', 'Schulz', '1990-09-25', '777-333-2222', 'DE777333222', 'SCHU', 'Lindenstraße', 55, NULL, NULL, NULL, 0, 0),
+(6, 'Herr', 'Markus', 'Koch', '1982-07-14', '111-222-3333', 'DE111222333', 'KOCH', 'Ahornweg', 77, NULL, NULL, NULL, 0, 0),
+(7, 'Frau', 'Sabine', 'Fischer', '1986-04-02', '444-555-6666', 'DE444555666', 'FISC', 'Eschenweg', 22, NULL, NULL, NULL, 0, 0),
+(8, 'Herr', 'Stefan', 'Huber', '1978-12-19', '222-333-4444', 'DE222333444', 'HUBE', 'Kiefernweg', 33, NULL, NULL, NULL, 0, 0),
+(9, 'Herr', 'Sebastian', 'Becker', '1995-01-28', '666-777-8888', 'DE666777888', 'BECK', 'Birkenweg', 44, NULL, NULL, NULL, 0, 0),
+(10, 'Frau', 'Julia', 'Hoffmann', '1991-06-07', '999-888-7777', 'DE999888777', 'HOFF', 'Tannenweg', 66, NULL, NULL, NULL, 0, 0),
+(11, 'Herr', 'Matthias', 'Richter', '1984-02-12', '777-999-1111', 'DE777999111', 'RICH', 'Ulmenweg', 99, NULL, NULL, NULL, 0, 0),
+(12, 'Herr', 'Johannes', 'Kramer', '1987-10-08', '333-666-9999', 'DE333666999', 'KRAM', 'Kastanienweg', 11, NULL, NULL, NULL, 0, 0),
+(13, 'Herr', 'Frank', 'Schneider', '1976-08-31', '444-222-1111', 'DE444222111', 'SCHN', 'Erlenweg', 88, NULL, NULL, NULL, 0, 0),
+(14, 'Herr', 'Daniel', 'Lange', '1983-03-17', '222-111-4444', 'DE222111444', 'LANG', 'Fichtenweg', 77, NULL, NULL, NULL, 0, 0),
+(15, 'Herr', 'Peter', 'Werner', '1993-09-14', '555-444-3333', 'DE555444333', 'WERN', 'Akazienweg', 55, NULL, NULL, NULL, 0, 0),
+(16, 'Herr', 'Christian', 'Schwarz', '1989-05-03', '888-777-6666', 'DE888777666', 'SCHW', 'Hainweg', 33, NULL, NULL, NULL, 0, 0),
+(17, 'Herr', 'Martin', 'Bauer', '1981-07-22', '777-555-2222', 'DE777555222', 'BAUE', 'Weidenweg', 22, NULL, NULL, NULL, 0, 0),
+(18, 'Herr', 'Andreas', 'Schmidt', '1980-10-12', '222-333-4444', 'DE222333444', 'SCHM', 'Kirschweg', 66, NULL, NULL, NULL, 0, 0),
+(19, 'Frau', 'Nicole', 'Meyer', '1990-11-09', '666-777-8888', 'DE666777888', 'MEYE', 'Ebereschenweg', 44, NULL, NULL, NULL, 0, 0),
+(20, 'Herr', 'Max', 'Schulze', '1986-12-04', '555-999-1111', 'DE555999111', 'SCHU', 'Schlehenweg', 99, NULL, NULL, NULL, 0, 0),
+(21, 'Herr', 'Klaus', 'Fuchs', '1984-04-29', '333-666-9999', 'DE333666999', 'FUCH', 'Apfelweg', 11, NULL, NULL, NULL, 0, 0),
+(22, 'Herr', 'Hans', 'Herrmann', '1977-02-15', '777-111-4444', 'DE777111444', 'HERR', 'Brombeerweg', 88, NULL, NULL, NULL, 0, 0),
+(23, 'Herr', 'Oliver', 'Schmitt', '1982-06-18', '222-888-3333', 'DE222888333', 'SCHM', 'Holunderweg', 77, NULL, NULL, NULL, 0, 0),
+(24, 'Frau', 'Lisa', 'Lehmann', '1992-03-26', '444-222-7777', 'DE444222777', 'LEHM', 'Himbeerweg', 55, NULL, NULL, NULL, 0, 0),
+(25, 'Herr', 'Erik', 'Krause', '1988-09-05', '999-777-4444', 'DE999777444', 'KRAU', 'Stachelbeerweg', 33, NULL, NULL, NULL, 0, 0),
+(26, 'Frau', 'Laura', 'Wolf', '1991-08-07', '555-666-3333', 'DE555666333', 'WOLF', 'Johannisbeerweg', 22, NULL, NULL, NULL, 0, 0),
+(27, 'Herr', 'Felix', 'Schreiber', '1985-01-30', '333-444-6666', 'DE333444666', 'SCHR', 'Blaubeerweg', 66, NULL, NULL, NULL, 0, 0),
+(28, 'Frau', 'Nina', 'Baum', '1994-12-23', '666-555-8888', 'DE666555888', 'BAUM', 'Preiselbeerweg', 44, NULL, NULL, NULL, 0, 0),
+(29, 'Herr', 'David', 'Graf', '1983-11-14', '222-888-1111', 'DE222888111', 'GRAF', 'Waldweg', 99, NULL, NULL, NULL, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -148,10 +147,6 @@ CREATE TABLE `dozentenvertrag` (
   `Honorar` varchar(128) DEFAULT NULL,
   `ID_Dozent` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
-
-
 
 -- --------------------------------------------------------
 
@@ -176,68 +171,48 @@ CREATE TABLE `kurs` (
   `Archiviert` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Daten für Tabelle `kurs`
+--
 
--- Beispiel 1
-INSERT INTO `kurs` VALUES (1, 50.0, 101, 'Yoga', 'Raum A', 'Yoga-Kurs für Anfänger', '2023-01-15 10:00:00', '2023-02-28 12:00:00', 12345, 'Berlin', 'Deutschland', 5, 20, 0);
-
--- Beispiel 2
-INSERT INTO `kurs` VALUES (2, 75.5, 102, 'Fitness', 'Raum B', 'Intensives Fitness-Training', '2023-02-01 15:30:00', '2023-03-15 17:30:00', 67890, 'München', 'Deutschland', 8, 15, 0);
-
--- Beispiel 3
-INSERT INTO `kurs` VALUES (3, 30.0, 103, 'Sprachkurs', 'Raum C', 'Deutsch für Fortgeschrittene', '2023-03-10 18:00:00', '2023-04-20 20:00:00', 54321, 'Hamburg', 'Deutschland', 10, 25, 0);
-
--- Beispiel 4
-INSERT INTO `kurs` VALUES (4, 100.0, 104, 'Kochen', 'Küche', 'Italienische Kochkunst', '2023-04-05 14:00:00', '2023-05-10 16:00:00', 98765, 'Frankfurt', 'Deutschland', 6, 12, 0);
-
--- Beispiel 5
-INSERT INTO `kurs` VALUES (5, 45.0, 105, 'Malerei', 'Atelier', 'Kreative Acrylmalerei', '2023-05-20 12:00:00', '2023-06-30 14:00:00', 13579, 'Köln', 'Deutschland', 7, 18, 0);
-
--- Beispiel 6
-INSERT INTO `kurs` VALUES (6, 60.0, 106, 'Musik', 'Musiksaal', 'Klavierunterricht für Anfänger', '2023-06-08 17:00:00', '2023-07-15 19:00:00', 24680, 'Stuttgart', 'Deutschland', 4, 10, 0);
-
--- Beispiel 7
-INSERT INTO `kurs` VALUES (7, 55.0, 107, 'Tanz', 'Tanzstudio', 'Lateinamerikanischer Tanzkurs', '2023-07-01 19:30:00', '2023-08-12 21:30:00', 86420, 'Düsseldorf', 'Deutschland', 9, 22, 0);
-
--- Beispiel 8
-INSERT INTO `kurs` VALUES (8, 80.0, 108, 'Fotografie', 'Fotostudio', 'Grundlagen der Fotografie', '2023-08-15 16:00:00', '2023-09-25 18:00:00', 97531, 'Hannover', 'Deutschland', 12, 30, 0);
-
--- Beispiel 9
-INSERT INTO `kurs` VALUES (9, 35.0, 109, 'Programmierung', 'Computerraum', 'Einführung in Python', '2023-09-05 10:30:00', '2023-10-10 12:30:00', 12340, 'Leipzig', 'Deutschland', 15, 35, 0);
-
--- Beispiel 10
-INSERT INTO `kurs` VALUES (10, 90.0, 110, 'Marketing', 'Seminarraum', 'Digital Marketing Strategien', '2023-10-20 14:30:00', '2023-11-30 16:30:00', 56789, 'Dresden', 'Deutschland', 20, 40, 0);
-
--- Beispiel 11
-INSERT INTO `kurs` VALUES (11, 40.0, 111, 'Gesundheit', 'Gesundheitszentrum', 'Meditationskurs', '2023-11-10 18:30:00', '2023-12-20 20:30:00', 32109, 'Nürnberg', 'Deutschland', 8, 18, 0);
-
--- Beispiel 12
-INSERT INTO `kurs` VALUES (12, 65.0, 112, 'Wissenschaft', 'Labor', 'Chemieexperimente für Jugendliche', '2023-12-01 13:00:00', '2024-01-15 15:00:00', 65432, 'Mannheim', 'Deutschland', 10, 25, 0);
-
--- Beispiel 13
-INSERT INTO `kurs` VALUES (13, 55.0, 113, 'Psychologie', 'Psychologiesaal', 'Grundlagen der Psychologie', '2024-01-05 15:00:00', '2024-02-10 17:00:00', 21098, 'Augsburg', 'Deutschland', 15, 30, 0);
-
--- Beispiel 14
-INSERT INTO `kurs` VALUES (14, 75.0, 114, 'Design', 'Designstudio', 'Webdesign Workshop', '2024-02-10 10:00:00', '2024-03-20 12:00:00', 87654, 'Bremen', 'Deutschland', 12, 28, 0);
-
--- Beispiel 15
-INSERT INTO `kurs` VALUES (15, 50.0, 115, 'Reisen', 'Reisebüro', 'Reiseplanung für Abenteurer', '2024-03-01 14:30:00', '2024-04-10 16:30:00', 54321, 'Düsseldorf', 'Deutschland', 8, 20, 0);
-
--- Beispiel 16
-INSERT INTO `kurs` VALUES (16, 95.0, 116, 'Kunstgeschichte', 'Kunstsaal', 'Renaissance und Barock', '2024-04-15 18:00:00', '2024-05-30 20:00:00', 98765, 'Hamburg', 'Deutschland', 6, 15, 0);
+INSERT INTO `kurs` (`ID_Kurs`, `Gebühr`, `Kursnummer`, `Kurstyp`, `Raum`, `Kursbeschreibung`, `KursBeginn`, `KursEnde`, `plz`, `stadt`, `land`, `minAnzahl`, `maxAnzahl`, `Archiviert`) VALUES
+(1, 50, 101, 'Yoga', 'Raum A', 'Yoga-Kurs für Anfänger', '2023-01-15 10:00:00', '2023-02-28 12:00:00', 12345, 'Berlin', 'Deutschland', 5, 20, 0),
+(2, 75.5, 102, 'Fitness', 'Raum B', 'Intensives Fitness-Training', '2023-02-01 15:30:00', '2023-03-15 17:30:00', 67890, 'München', 'Deutschland', 8, 15, 0),
+(3, 30, 103, 'Sprachkurs', 'Raum C', 'Deutsch für Fortgeschrittene', '2023-03-10 18:00:00', '2023-04-20 20:00:00', 54321, 'Hamburg', 'Deutschland', 10, 25, 0),
+(4, 100, 104, 'Kochen', 'Küche', 'Italienische Kochkunst', '2023-04-05 14:00:00', '2023-05-10 16:00:00', 98765, 'Frankfurt', 'Deutschland', 6, 12, 0),
+(5, 45, 105, 'Malerei', 'Atelier', 'Kreative Acrylmalerei', '2023-05-20 12:00:00', '2023-06-30 14:00:00', 13579, 'Köln', 'Deutschland', 7, 18, 0),
+(6, 60, 106, 'Musik', 'Musiksaal', 'Klavierunterricht für Anfänger', '2023-06-08 17:00:00', '2023-07-15 19:00:00', 24680, 'Stuttgart', 'Deutschland', 4, 10, 0),
+(7, 55, 107, 'Tanz', 'Tanzstudio', 'Lateinamerikanischer Tanzkurs', '2023-07-01 19:30:00', '2023-08-12 21:30:00', 86420, 'Düsseldorf', 'Deutschland', 9, 22, 0),
+(8, 80, 108, 'Fotografie', 'Fotostudio', 'Grundlagen der Fotografie', '2023-08-15 16:00:00', '2023-09-25 18:00:00', 97531, 'Hannover', 'Deutschland', 12, 30, 0),
+(9, 35, 109, 'Programmierung', 'Computerrau', 'Einführung in Python', '2023-09-05 10:30:00', '2023-10-10 12:30:00', 12340, 'Leipzig', 'Deutschland', 15, 35, 0),
+(10, 90, 110, 'Marketing', 'Seminarraum', 'Digital Marketing Strategien', '2023-10-20 14:30:00', '2023-11-30 16:30:00', 56789, 'Dresden', 'Deutschland', 20, 40, 0),
+(11, 40, 111, 'Gesundheit', 'Gesundheits', 'Meditationskurs', '2023-11-10 18:30:00', '2023-12-20 20:30:00', 32109, 'Nürnberg', 'Deutschland', 8, 18, 0),
+(12, 65, 112, 'Wissenschaft', 'Labor', 'Chemieexperimente für Jugendliche', '2023-12-01 13:00:00', '2024-01-15 15:00:00', 65432, 'Mannheim', 'Deutschland', 10, 25, 0),
+(13, 55, 113, 'Psychologie', 'Psychologie', 'Grundlagen der Psychologie', '2024-01-05 15:00:00', '2024-02-10 17:00:00', 21098, 'Augsburg', 'Deutschland', 15, 30, 0),
+(14, 75, 114, 'Design', 'Designstudi', 'Webdesign Workshop', '2024-02-10 10:00:00', '2024-03-20 12:00:00', 87654, 'Bremen', 'Deutschland', 12, 28, 0),
+(15, 50, 115, 'Reisen', 'Reisebüro', 'Reiseplanung für Abenteurer', '2024-03-01 14:30:00', '2024-04-10 16:30:00', 54321, 'Düsseldorf', 'Deutschland', 8, 20, 0),
+(16, 95, 116, 'Kunstgeschichte', 'Kunstsaal', 'Renaissance und Barock', '2024-04-15 18:00:00', '2024-05-30 20:00:00', 98765, 'Hamburg', 'Deutschland', 6, 15, 0);
 
 -- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `kurs_dozent`
---
-
 CREATE TABLE `kurs_dozent` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Datum_Beginn` datetime DEFAULT NULL,
   `Datum_Ende` datetime DEFAULT NULL,
   `Anzahl_Einheiten` int(11) DEFAULT NULL,
   `ID_Dozent` int(11) DEFAULT NULL,
-  `ID_Kurs` int(11) DEFAULT NULL
+  `ID_Kurs` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `kurs_dozent`
+--
+
+INSERT INTO `kurs_dozent` (`Datum_Beginn`, `Datum_Ende`, `Anzahl_Einheiten`, `ID_Dozent`, `ID_Kurs`) VALUES
+('2023-12-13 08:07:05', '2023-12-13 08:07:05', 23, 28, 16),
+('2023-12-13 08:07:05', '2023-12-13 08:07:05', 34, 28, 1),
+('2023-12-13 08:07:16', '2023-12-13 08:07:16', 23, 20, 13),
+('2023-12-13 08:07:16', '2023-12-13 08:07:16', 34, 10, 3);
 
 -- --------------------------------------------------------
 
@@ -305,7 +280,7 @@ CREATE TABLE `teilnehmer` (
   `PLZ` int(11) DEFAULT NULL,
   `stadt` varchar(255) DEFAULT NULL,
   `land` varchar(255) DEFAULT NULL,
-   `Bestätigt` tinyint(1) DEFAULT 0,
+  `Bestätigt` tinyint(1) DEFAULT 0,
   `geloescht` tinyint(1) DEFAULT 0,
   `krank` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -402,7 +377,7 @@ ALTER TABLE `dozentenvertrag`
 -- AUTO_INCREMENT für Tabelle `kurs`
 --
 ALTER TABLE `kurs`
-  MODIFY `ID_Kurs` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Kurs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT für Tabelle `kurs_dozentenrechnung`
