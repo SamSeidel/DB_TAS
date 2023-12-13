@@ -4,26 +4,33 @@
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $id_user = $_POST["ID_rechnung"];
+  
+ 
         //Mit isempty arbeiten
-
        
-        if(!empty($_POST["vergegenst"])) {
-            $conn->prepare("UPDATE dozentenvertrag SET Vertragsgegenstand='$_POST[vergegenst]'WHERE ID_Honorarvertrag=$id_user")->execute();
+        if(!empty($_POST["Beginn"])) {
+            $conn->prepare("UPDATE kurs_dozent SET Datum_Beginn=':Datum_Beginn' WHERE ID=':ID' ")->execute();
         }
-        if(!empty($_POST["verbeginn"])) {
-            $conn->prepare("UPDATE dozentenvertrag SET Vertragsbeginn='$_POST[verbeginn]'WHERE ID_Honorarvertrag=$id_user")->execute();
+        if(!empty($_POST["Ende"])) {
+            $conn->prepare("UPDATE kurs_dozent SET Datum_Ende=':Datum_Ende' WHERE ID=':ID'  ")->execute();
         }
-        if(!empty($_POST["verende"])) {
-            $conn->prepare("UPDATE dozentenvertrag SET Vertragsende='$_POST[verende]'WHERE ID_Honorarvertrag=$id_user")->execute();
+        if(!empty($_POST["Anzahl_Einheiten"])) {
+            $conn->prepare("UPDATE kurs_dozent SET Anzahl_Einheiten=':Anzahl_Einheiten' WHERE ID=':ID' ")->execute();
         }
-        if(!empty($_POST["honorar"])) {
-            $conn->prepare("UPDATE dozentenvertrag SET Honorar='$_POST[honorar]'WHERE ID_Honorarvertrag=$id_user")->execute();
+        if(!empty($_POST["Dozent"])) {
+            $conn->prepare("UPDATE kurs_dozent SET 	ID_Dozent=':ID_Dozent' WHERE ID=':ID'")->execute();
         }
-        if(!empty($_POST["ID_Dozent"])) {
-            $conn->prepare("UPDATE dozentenvertrag SET ID_Dozent='$_POST[id_dozent]'WHERE ID_Honorarvertrag=$id_user")->execute();
+        if(!empty($_POST["kurs"])) {
+            $conn->prepare("UPDATE kurs_dozent SET ID_Kurs=':ID_Kurs' WHERE ID=':ID'")->execute();
         }
         
+
+        $conn->bindParam(':Datum_Beginn', $_POST["Beginn"]);
+$conn->bindParam(':Datum_Ende', $_POST["Ende"]);
+$conn->bindParam(':Anzahl_Einheiten', $_POST["Einheiten"]);
+$conn->bindParam(':ID_Dozent', $_POST["Dozent"]);
+$conn->bindParam(':ID_Kurs', $_POST["kurs"]);
+$conn->bindParam(':ID', $_POST["ID_rechnung"]);
         
-    header('Location: '. "DozentenVertrag_tbl.php");
+    header('Location: '. "DozentenKursVertrag_tbl.php");
 ?>
