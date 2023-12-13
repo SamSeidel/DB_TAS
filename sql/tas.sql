@@ -149,6 +149,10 @@ CREATE TABLE `dozentenvertrag` (
   `ID_Dozent` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
+
+
+
 -- --------------------------------------------------------
 
 --
@@ -169,8 +173,57 @@ CREATE TABLE `kurs` (
   `land` varchar(255) DEFAULT NULL,
   `minAnzahl` int(11) DEFAULT NULL,
   `maxAnzahl` int(11) DEFAULT NULL,
-  `Archiviert` tinyint(1) DEFAULT NULL
+  `Archiviert` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+-- Beispiel 1
+INSERT INTO `kurs` VALUES (1, 50.0, 101, 'Yoga', 'Raum A', 'Yoga-Kurs für Anfänger', '2023-01-15 10:00:00', '2023-02-28 12:00:00', 12345, 'Berlin', 'Deutschland', 5, 20, 0);
+
+-- Beispiel 2
+INSERT INTO `kurs` VALUES (2, 75.5, 102, 'Fitness', 'Raum B', 'Intensives Fitness-Training', '2023-02-01 15:30:00', '2023-03-15 17:30:00', 67890, 'München', 'Deutschland', 8, 15, 0);
+
+-- Beispiel 3
+INSERT INTO `kurs` VALUES (3, 30.0, 103, 'Sprachkurs', 'Raum C', 'Deutsch für Fortgeschrittene', '2023-03-10 18:00:00', '2023-04-20 20:00:00', 54321, 'Hamburg', 'Deutschland', 10, 25, 0);
+
+-- Beispiel 4
+INSERT INTO `kurs` VALUES (4, 100.0, 104, 'Kochen', 'Küche', 'Italienische Kochkunst', '2023-04-05 14:00:00', '2023-05-10 16:00:00', 98765, 'Frankfurt', 'Deutschland', 6, 12, 0);
+
+-- Beispiel 5
+INSERT INTO `kurs` VALUES (5, 45.0, 105, 'Malerei', 'Atelier', 'Kreative Acrylmalerei', '2023-05-20 12:00:00', '2023-06-30 14:00:00', 13579, 'Köln', 'Deutschland', 7, 18, 0);
+
+-- Beispiel 6
+INSERT INTO `kurs` VALUES (6, 60.0, 106, 'Musik', 'Musiksaal', 'Klavierunterricht für Anfänger', '2023-06-08 17:00:00', '2023-07-15 19:00:00', 24680, 'Stuttgart', 'Deutschland', 4, 10, 0);
+
+-- Beispiel 7
+INSERT INTO `kurs` VALUES (7, 55.0, 107, 'Tanz', 'Tanzstudio', 'Lateinamerikanischer Tanzkurs', '2023-07-01 19:30:00', '2023-08-12 21:30:00', 86420, 'Düsseldorf', 'Deutschland', 9, 22, 0);
+
+-- Beispiel 8
+INSERT INTO `kurs` VALUES (8, 80.0, 108, 'Fotografie', 'Fotostudio', 'Grundlagen der Fotografie', '2023-08-15 16:00:00', '2023-09-25 18:00:00', 97531, 'Hannover', 'Deutschland', 12, 30, 0);
+
+-- Beispiel 9
+INSERT INTO `kurs` VALUES (9, 35.0, 109, 'Programmierung', 'Computerraum', 'Einführung in Python', '2023-09-05 10:30:00', '2023-10-10 12:30:00', 12340, 'Leipzig', 'Deutschland', 15, 35, 0);
+
+-- Beispiel 10
+INSERT INTO `kurs` VALUES (10, 90.0, 110, 'Marketing', 'Seminarraum', 'Digital Marketing Strategien', '2023-10-20 14:30:00', '2023-11-30 16:30:00', 56789, 'Dresden', 'Deutschland', 20, 40, 0);
+
+-- Beispiel 11
+INSERT INTO `kurs` VALUES (11, 40.0, 111, 'Gesundheit', 'Gesundheitszentrum', 'Meditationskurs', '2023-11-10 18:30:00', '2023-12-20 20:30:00', 32109, 'Nürnberg', 'Deutschland', 8, 18, 0);
+
+-- Beispiel 12
+INSERT INTO `kurs` VALUES (12, 65.0, 112, 'Wissenschaft', 'Labor', 'Chemieexperimente für Jugendliche', '2023-12-01 13:00:00', '2024-01-15 15:00:00', 65432, 'Mannheim', 'Deutschland', 10, 25, 0);
+
+-- Beispiel 13
+INSERT INTO `kurs` VALUES (13, 55.0, 113, 'Psychologie', 'Psychologiesaal', 'Grundlagen der Psychologie', '2024-01-05 15:00:00', '2024-02-10 17:00:00', 21098, 'Augsburg', 'Deutschland', 15, 30, 0);
+
+-- Beispiel 14
+INSERT INTO `kurs` VALUES (14, 75.0, 114, 'Design', 'Designstudio', 'Webdesign Workshop', '2024-02-10 10:00:00', '2024-03-20 12:00:00', 87654, 'Bremen', 'Deutschland', 12, 28, 0);
+
+-- Beispiel 15
+INSERT INTO `kurs` VALUES (15, 50.0, 115, 'Reisen', 'Reisebüro', 'Reiseplanung für Abenteurer', '2024-03-01 14:30:00', '2024-04-10 16:30:00', 54321, 'Düsseldorf', 'Deutschland', 8, 20, 0);
+
+-- Beispiel 16
+INSERT INTO `kurs` VALUES (16, 95.0, 116, 'Kunstgeschichte', 'Kunstsaal', 'Renaissance und Barock', '2024-04-15 18:00:00', '2024-05-30 20:00:00', 98765, 'Hamburg', 'Deutschland', 6, 15, 0);
 
 -- --------------------------------------------------------
 
