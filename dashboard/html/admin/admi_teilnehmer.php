@@ -37,13 +37,17 @@
                     <th> E - Mail </th>
                     <th> Telefonnummer </th>
                     <th> Geburtsdatum </th>
+                    <th> Land </th>
+                    <th> Stadt </th>
                     <th> Strasse </th>
                     <th> Hausnummer </th>
+                    <th></th>
                     <th></th>
                     <th></th>
 
                 <?php 
                     while($row = $stmt->fetch()) {
+                        if($row["geloescht"] == NULL) { 
                         ?>
 
                         <tr> 
@@ -55,6 +59,8 @@
                             <td> <input value="<?php echo $row["Email"]?>" name="email" type="text" class="edit"></td>
                             <td> <input value="<?php echo $row["Telefonnummer"]?>" name="telnummer" type="text" class="edit"></td>
                             <td> <input value="<?php echo $row["Geburtsdatum"]?>" name="geburtsdatum" type="text" class="edit"></td>
+                            <td> <input value="<?php echo $row["land"]?>" name="land" type="text" class="edit"></td>
+                            <td> <input value="<?php echo $row["stadt"]?>" name="stadt" type="text" class="edit"></td>
                             <td> <input value="<?php echo $row["Strasse"]?>" name="strasse" type="text" class="edit"></td>
                             <td> <input value="<?php echo $row["Hausnummer"]?>" name="hausnr" type="text" class="edit"></td>
                             
@@ -62,7 +68,7 @@
                                     <button type="submit" name="id_teilnehmer" value="<?php echo $row["ID_Teilnehmer"]?>" style="border:none; background-color: #ececec;"> 
                                             <img src="../../res/recycling.png" style="width:24px; height:24px;">
                                     </button>
-                                    </form>
+                                </form>
                             </td>
                             <td>
                                 <form action="db/admi_teilnehmer_löschen.php" method="POST">
@@ -71,8 +77,16 @@
                                     </button>
                                 </form>
                             </td>
+                            <td>
+                                <form action="db/admi_teilnehmer_kurshinzufügen.php" method="POST">
+                                    <button type="submit" name="id_teilnehmer" value="<?php echo $row["ID_Teilnehmer"]?>" style="border:none; background-color: #ececec;">
+                                            <img src="../../res/hinzufugen.png" style="width:24px; height:24px; background-color: #ececec;">
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                         <?php
+                        }
                     }
                 ?>
         </table>
