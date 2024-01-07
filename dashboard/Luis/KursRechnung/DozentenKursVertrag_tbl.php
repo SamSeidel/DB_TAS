@@ -47,6 +47,12 @@ try {
                         </button>
                     </td>
                 </form>
+                <td>
+                    <form action="DozentenKursvertrag_Löschen"></form>
+                        <button type="submit" name="ID_rechnung_DEL" value="<?php echo $row["ID"]?>" style="border:none; background-color: #ececec;">
+                            <img src="../../res/recycling.png" style="width:24px; height:24px;">
+                        </button>
+                    </td>
             </tr>
         <?php } ?>
     </table>
@@ -58,7 +64,7 @@ try {
     <td> <input placeholder="StartDatum:" name="Beginn2" type="date" class="edit"></td>
     <td> <input placeholder="Endzeitpunkt:" name="Ende2" type="date" class="edit"></td>
     <td> <input placeholder="Anz Einheiten:" name="Einheiten2" type="text" class="edit"></td>
-    <td> <input placeholder="Dozent:" name="Dozent2" type="text" class="edit"></td>
+    <td> <input placeholder="Dozent:" name="dozent2" type="text" class="edit"></td>
     <td> <input placeholder="Kurs:" name="kurs2" type="text" class="edit"></td>
     <td>
         <button type="submit" name="ID_rechnung2"  style="border:none; background-color: #ececec;">

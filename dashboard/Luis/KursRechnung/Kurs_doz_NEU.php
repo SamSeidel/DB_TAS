@@ -14,7 +14,7 @@ $stmt->execute();
 $stmt->bindParam(':Datum_Beginn', $_POST["Beginn2"]);
 $stmt->bindParam(':Datum_Ende', $_POST["Ende2"]);
 $stmt->bindParam(':Anzahl_Einheiten', $_POST["Einheiten2"]);
-$stmt->bindParam(':ID_Dozent', $_POST["Dozent2"]);
+$stmt->bindParam(':ID_Dozent', $_POST["dozent2"]);
 $stmt->bindParam(':ID_Kurs', $_POST["kurs2"]);
 
 

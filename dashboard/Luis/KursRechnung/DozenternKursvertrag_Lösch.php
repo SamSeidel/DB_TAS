@@ -4,7 +4,7 @@
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $id_user = $_POST["ID_vertrag"];
-    $del_usr = $conn->prepare("DELETE FROM dozentenvertrag WHERE ID_Honorarvertrag='$id_user'");
+    $del_usr = $conn->prepare("DELETE FROM kurs_dozent WHERE ID_Dozent='$id_user'");
     header('Location: '. "DozentenVertrag_tbl.php");
     $del_usr->execute();
 ?>
