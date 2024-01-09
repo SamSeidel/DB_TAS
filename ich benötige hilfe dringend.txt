@@ -17,6 +17,8 @@ Rechnung Fertig machen(die daten sind immernoch weird ka wie das sein kann lol)
 Rechnung hinzufügen
 Rechnung zu paperkorb hinzufügen
 
+Teilnehmer Kurs hinzufügen
+
 PDF´s von Teilnehmer mit Rechnung :/ (wenn wir das noch brauchen)
 
 Papierkorb fixen (die abfrage nach löschen funktioniert nicht)
