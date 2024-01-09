@@ -270,12 +270,12 @@ CREATE TABLE `teilnehmer` (
 --
 
 INSERT INTO `teilnehmer` (`ID_Teilnehmer`, `Anrede`, `Vorname`, `Nachname`, `Email`, `Telefonnummer`, `Geburtsdatum`, `Strasse`, `Hausnummer`, `ID_Betrieb`, `PLZ`, `stadt`, `land`, `Bestätigt`, `geloescht`) VALUES
-(1, 'Herr', 'Sam', 'Seidel', 'sam.sidl@rambler.ru', '+7 912488741', '2023-12-09', 'hilfe', 2, 5, 42699, 'Deutschland', 'Solingen',  NULL),
-(2, 'Frau', 'Anna', 'Müller', 'sam.sidl@rambler.ru', '987-654-3210', '1992-08-21', 'hilfe', 2, 5, 42699, 'Deutschland', 'Solingen', 1),
-(3, 'Frau', 'Jonas', 'mmmmm burger', 'jonas.burgirkong@jobs.de', '?', '2023-12-14', 'Bürgerstraße', -1, 27, 521511, 'fortnite', 'spanien',  0),
-(5, 'Frau', 'Jonasaaaas', 'mmmmm burger', 'jonas.burgirkong@jobs.de', '?', '2023-12-14', 'Bürgerstraße', -1, 27, 521511, 'fortnite', 'spanien',  1),
-(7, 'Frau', 'Jonas', 'mmmmm burger', 'jonas.burgirkong@jobs.de', '?', '2023-12-14', 'Bürgerstraße', -1, 27, 521511, 'fortnite', 'spanien',  0),
-(9, 'FraU', 'Collin', 'Klein', 'faru@klein.de', '3905728375023', '2023-12-21', 'hilfe', 2, 26, 45353, 'werlmskrichen', 'germanya',  1);
+(1, 'Herr', 'Sam', 'Seidel', 'sam.sidl@rambler.ru', '+7 912488741', '2023-12-09', 'hilfe', 2, 5, 42699, 'Deutschland', 'Solingen', 0, NULL),
+(2, 'Frau', 'Anna', 'Müller', 'sam.sidl@rambler.ru', '987-654-3210', '1992-08-21', 'hilfe', 2, 5, 42699, 'Deutschland', 'Solingen', 0, 1),
+(3, 'Frau', 'Jonas', 'mmmmm burger', 'jonas.burgirkong@jobs.de', '?', '2023-12-14', 'Bürgerstraße', -1, 27, 521511, 'fortnite', 'spanien', 0, 0),
+(5, 'Frau', 'Jonasaaaas', 'mmmmm burger', 'jonas.burgirkong@jobs.de', '?', '2023-12-14', 'Bürgerstraße', -1, 27, 521511, 'fortnite', 'spanien', 0, 1),
+(7, 'Frau', 'Jonas', 'mmmmm burger', 'jonas.burgirkong@jobs.de', '?', '2023-12-14', 'Bürgerstraße', -1, 27, 521511, 'fortnite', 'spanien', 0, 0),
+(9, 'FraU', 'Collin', 'Klein', 'faru@klein.de', '3905728375023', '2023-12-21', 'hilfe', 2, 26, 45353, 'werlmskrichen', 'germanya', 0, 1);
 
 --
 -- Indizes der exportierten Tabellen
