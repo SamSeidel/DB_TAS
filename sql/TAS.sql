@@ -374,6 +374,8 @@ ALTER TABLE `dozentenvertrag`
 ALTER TABLE `kurs`
   MODIFY `ID_Kurs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
+ALTER TABLE `kurs_dozent`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT für Tabelle `kurs_dozentenrechnung`
 --
