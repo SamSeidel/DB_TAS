@@ -14,12 +14,12 @@
     <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
-    <div class="header">
+<div class="header">
         <h2> Papierkorb
+
         <div class="center"> 
             <a href="../tas_admin.html"><img width="26px" height="26px" class="heading" src="../../res/zuruck.png"> </h2></a>
         </div>
-    </div>
     <?php
        include '../../php/include/dbinclude.php';
        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -32,17 +32,9 @@
        }
 
        if(!empty($_POST["del_dozent"])) { 
-           ?>
-               <script> 
-                   if(confirm('Soll der Dozent wirklich endgültig gelöscht werdern?\nDanach kann man ihn nicht wiederherstellen!')) {
-                       <?php
-                           $dozentlöschen = $conn->prepare("DELETE FROM dozent WHERE id_dozent=:value");
-                           $dozentlöschen->bindparam(":value", $_POST["del_dozent"]);
-                           $dozentlöschen->execute();
-                        ?>
-                   } 
-               </script>
-           <?php
+            $dozentlöschen = $conn->prepare("DELETE FROM dozent WHERE id_dozent=:value");
+            $dozentlöschen->bindparam(":value", $_POST["del_dozent"]);
+            $dozentlöschen->execute();
        }   
 
        if(!empty($_POST["cng_teilnehmer"])) { 
@@ -52,18 +44,10 @@
        }
 
        if(!empty($_POST["del_teilnehmer"])) { 
-       ?>
-           <script> 
-               if(confirm('Soll der Teilnehmer wirklich endgültig gelöscht werdern?\nDanach kann man ihn nicht wiederherstellen!')) {
-                   <?php
-                       $teilnehmerlöschen = $conn->prepare("DELETE FROM teilnehmer WHERE id_teilnehmer=:value");
-                       $teilnehmerlöschen->bindparam(":value", $_POST["del_teilnehmer"]);
-                       $teilnehmerlöschen->execute();
-                    ?>
-               }
-           </script>
-       <?php
-     }
+            $teilnehmerlöschen = $conn->prepare("DELETE FROM teilnehmer WHERE id_teilnehmer=:value");
+            $teilnehmerlöschen->bindparam(":value", $_POST["del_teilnehmer"]);
+            $teilnehmerlöschen->execute();
+        }
 
         if(!empty($_POST["cng_betrieb"])) { 
             $betrieb = $conn->prepare("UPDATE betrieb SET geloescht='NULL' WHERE id_betrieb=$_POST[cng_betrieb]");
@@ -72,19 +56,25 @@
         }
 
         if(!empty($_POST["del_betrieb"])) { 
-        ?>
-            <script> 
-                if(confirm('Soll der Betrieb wirklich endgültig gelöscht werdern?\nDanach kann man ihn nicht wiederherstellen!')) {
-                    <?php
-                        $betrieböschen = $conn->prepare("DELETE FROM betrieb WHERE id_betrieb=:value");
-                        $betrieblöschen->bindparam(":value", $_POST["del_betrieb"]);
-                        $betrieblöschen->execute();
-                    ?>
-                }
-            </script>
-        <?php
-    }
-        
+            $betrieböschen = $conn->prepare("DELETE FROM betrieb WHERE id_betrieb=:value");
+            $betrieblöschen->bindparam(":value", $_POST["del_betrieb"]);
+            $betrieblöschen->execute();
+            header("Refresh: 0.1; url=$_SERVER[PHP_SELF]");
+
+        }
+
+        if(!empty($_POST["cng_invoice"])) { 
+            $rechnung = $conn->prepare("UPDATE rechnung SET rechnung.geloescht='0' WHERE id_rechnung=$_POST[cng_invoice]");
+            $rechnung->execute();
+            header("Refresh: 0.1; url=$_SERVER[PHP_SELF]");
+        }
+
+        if(!empty($_POST["del_invoice"])) { 
+            $rechnung_löschen = $conn->prepare("DELETE FROM rechnung WHERE id_rechnung=:value");
+            $rechnung_löschen->bindparam(":value", $_POST["del_invoice"]);
+            $rechnung_löschen->execute();
+            header("Refresh: 0.1; url=$_SERVER[PHP_SELF]");
+        }
     ?>
 
     <div><br>
@@ -230,20 +220,76 @@
                             
                             <td>  
                                 <button type="submit" name="cng_betrieb" id="cng_betrieb" value="<?php echo $row["ID_Betrieb"]?>" style="border:none; background-color: #ececec;"> 
-                                        <img src="../../res/wiederherstellen.png" title="Daten Aendern" style="width:24px; height:24px;">
+                                        <img src="../../res/wiederherstellen.png" title="Wiederherstellen"style="width:24px; height:24px;">
                                 </button>
                                 </form>
                             </td>
                             <td>
                                 <form action="<?= $_SERVER['PHP_SELF']?>" method="POST">
                                     <button type="submit" name="del_betrieb" id="del_betrieb" value="<?php echo $row["ID_Betrieb"]?>" style="border:none; background-color: #ececec;">
-                                            <img src="../../res/entfernen.png" title="Betrieb Archivieren" style="width:24px; height:24px; background-color: #ececec;">
+                                            <img src="../../res/entfernen.png" title="Endgültig Löschen" style="width:24px; height:24px; background-color: #ececec;">
                                     </button>
                                 </form>
                             </td>
                         </tr>
                         <?php
                         }
+                    }
+                ?>
+        </table>
+        <br>
+        <table style="width: 100%;">
+                    <h2 style="text-align: center; margin-top: -0.1%;"> Archivierte Rechnungen</h2>  
+                    <th> Vorname </th>
+                    <th> Nachname </th>
+                    <th> Rchnungs ID </th>
+                    <th> Rechnungs Nummer </th>
+                    <th> Betrag </th>
+                    <th> Bestellnummer </th>
+                    <th> Zahlungsfrist </th>
+                    <th> Mahnungsdatum </th>
+                    <th> Bezahldatum </th>
+                    <th> Kurs </th>
+                    <th></th>
+                    <th></th>
+
+                <?php 
+                    $teilnehmer = $conn->prepare("SELECT * FROM rechnung LEFT JOIN teilnehmer ON teilnehmer.ID_Teilnehmer = rechnung.ID_Teilnehmer WHERE rechnung.geloescht!=0 ");
+                    $teilnehmer->execute();
+                    while($row = $teilnehmer->fetch()) {
+                        ?>
+
+                        <tr> 
+                        <form action="<?= $_SERVER['PHP_SELF']?>" method="POST">
+                        <td> <input value="<?php echo $row["Vorname"]?>"  readonly name="Vorname" type="text" class="edit"></td>
+                            <td> <input value="<?php echo $row["Nachname"]?>" readonly name="Nachname" type="text" class="edit"></td>
+                            <td> <input value="<?php echo $row["ID_Rechnung"]?>" readonly name="ID_Rechnung" type="text" class="edit"></td>
+                            <td> <input value="<?php echo $row["RE_Nummer"]?>" name="RE_Nummer" type="text" class="edit"></td>
+                            <td> <input value="<?php 
+                                                $result = str_replace('.', ',', $row["Betrag"]);
+                                                echo $result . ".- €";
+                                                ?>" name="Betrag" placeholder="Eingabe z.b. 50.5" class="edit"></td>
+                            <td> <input value="<?php echo $row["Bestellnummer"]?>" name="Bestellnummer" type="text" class="edit"></td>
+                            <td> <input value="<?php echo $row["Zahlungsfrist"]?>" name="Zahlungsfrist" type="date" class="edit"></td>
+                            <td> <input value="<?php echo $row["Mahnungsdatum"]?>" name="Mahnungsdatum" type="date" class="edit"></td>
+                            <td> <input value="<?php echo $row["Bezahldatum"]?>" name="Bezahldatum" type="date" class="edit"></td>
+                            <td> <input value="<?php echo $row["ID_Kurs"]?>" readonly name="ID_Kurs" type="text" class="edit"></td>
+                            
+                            <td>    
+                                <button type="submit" name="cng_invoice" value="<?php echo $row["ID_Rechnung"]?>" style="border:none; background-color: #ececec;"> 
+                                        <img src="../../res/wiederherstellen.png" title="Wiederherstellen" style="width:24px; height:24px;">
+                                </button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="<?= $_SERVER['PHP_SELF']?>" method="POST">
+                                    <button type="submit" name="del_invoice" value="<?php echo $row["ID_Rechnung"]?>" style="border:none; background-color: #ececec;">
+                                            <img src="../../res/entfernen.png" title="Endgültig Löschen" style="width:24px; height:24px; background-color: #ececec;">
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        <?php
                     }
                 ?>
         </table>
