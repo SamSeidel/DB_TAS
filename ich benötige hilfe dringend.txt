@@ -10,10 +10,11 @@ admi_dozent fertig gemacht (löschen und ändern)
 betrieb
 papierkorb fertig (Teilnehmer, Dozenten, Betriebe). dachte ich
 
+Rechnung Fertig machen(die daten sind immernoch weird ka wie das sein kann  / war easy lol)
 
 NOCH ZU MACHEN 
 
-Rechnung Fertig machen(die daten sind immernoch weird ka wie das sein kann lol)
+
 Rechnung hinzufügen
 Rechnung zu paperkorb hinzufügen
 
