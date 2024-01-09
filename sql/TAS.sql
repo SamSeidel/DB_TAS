@@ -182,6 +182,7 @@ INSERT INTO `kurs` (`ID_Kurs`, `Gebühr`, `Kursnummer`, `Kurstyp`, `Raum`, `Kurs
 --
 
 CREATE TABLE `kurs_dozent` (
+  `ID` int(11) NOT NULL,
   `Datum_Beginn` datetime DEFAULT NULL,
   `Datum_Ende` datetime DEFAULT NULL,
   `Anzahl_Einheiten` int(11) DEFAULT NULL,
