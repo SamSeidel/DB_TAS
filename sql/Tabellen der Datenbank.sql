@@ -79,6 +79,7 @@ CREATE TABLE Dozentenvertrag (
 ),
 
 CREATE TABLE Kurs_Teilnehmer( 
+	ID int PRIMARY KEY AUTO_INCREMENT,
 	Anfangszeitpunkt DATETIME,
     Endzeitpunkt DATETIME,
     ID_Kurs int NOT NULL,
