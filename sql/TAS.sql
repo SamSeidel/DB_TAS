@@ -326,7 +326,6 @@ ALTER TABLE `kurs_dozentenrechnung`
 -- Indizes für die Tabelle `kurs_teilnehmer`
 --
 ALTER TABLE `kurs_teilnehmer`
-   ADD PRIMARY KEY (`ID_kurs_teilnehmer`),
   ADD KEY `ID_Kurs` (`ID_Kurs`),
   ADD KEY `ID_Teilnehmer` (`ID_Teilnehmer`);
 
