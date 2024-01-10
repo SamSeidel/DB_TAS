@@ -225,24 +225,30 @@ CREATE TABLE `kurs_teilnehmer` (
 -- Tabellenstruktur für Tabelle `rechnung`
 --
 
+
 CREATE TABLE `rechnung` (
   `ID_Rechnung` int(11) NOT NULL,
   `RE_Nummer` varchar(128) DEFAULT NULL,
-  `Zahlungsfrist` datetime DEFAULT NULL,
+  `Zahlungsfrist` date DEFAULT NULL,
   `Betrag` double DEFAULT NULL,
-  `Bezahldatum` datetime DEFAULT NULL,
+  `Bezahldatum` date DEFAULT NULL,
   `Bestellnummer` varchar(256) DEFAULT NULL,
   `Mahnungsdatum` date DEFAULT NULL,
   `ID_Teilnehmer` int(11) NOT NULL,
-  `ID_Kurs` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `ID_Kurs` int(11) NOT NULL,
+  `geloescht` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Daten für Tabelle `rechnung`
 --
 
-INSERT INTO `rechnung` (`ID_Rechnung`, `RE_Nummer`, `Zahlungsfrist`, `Betrag`, `Bezahldatum`, `Bestellnummer`, `Mahnungsdatum`, `ID_Teilnehmer`, `ID_Kurs`) VALUES
-(1, '1', '2023-12-15 00:00:00', 60, '2023-12-14 00:00:00', '1', '2023-12-13', 1, 1);
+INSERT INTO `rechnung` (`ID_Rechnung`, `RE_Nummer`, `Zahlungsfrist`, `Betrag`, `Bezahldatum`, `Bestellnummer`, `Mahnungsdatum`, `ID_Teilnehmer`, `ID_Kurs`, `geloescht`) VALUES
+(0, '1', '2024-01-19', 100.5, '2024-01-21', '1', '2023-12-13', 1, 1, 1),
+(2, '12', '2014-06-04', 1009, '2024-02-01', '3', '2024-01-18', 5, 1, 0),
+(6, '12', '0000-00-00', 12, '0000-00-00', '12', '0000-00-00', 1, 1, 0),
+(8, '7', '2024-01-12', 1250, '2024-01-25', '13', '2024-02-02', 9, 1, 0),
+(9, NULL, '2024-01-13', 1000000, '2024-01-26', '1', '2024-01-20', 2, 1, 1);
 
 -- --------------------------------------------------------
 
