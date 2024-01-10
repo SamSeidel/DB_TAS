@@ -212,7 +212,7 @@ CREATE TABLE `kurs_dozentenrechnung` (
 --
 
 CREATE TABLE `kurs_teilnehmer` (
-  `ID` int(11) NOT NULL,
+  `ID_kurs_teilnehmer` int(11) NOT NULL,
   `Anfangszeitpunkt` datetime DEFAULT NULL,
   `Endzeitpunkt` datetime DEFAULT NULL,
   `ID_Kurs` int(11) NOT NULL,
@@ -312,7 +312,7 @@ ALTER TABLE `kurs`
 -- Indizes für die Tabelle `kurs_dozent`
 --
 ALTER TABLE `kurs_dozent`
-  ADD PRIMARY KEY (`ID_kurs_dozent`),
+  ADD PRIMARY KEY (`ID_kurs_teilnehmer`),
   ADD KEY `ID_Dozent` (`ID_Dozent`),
   ADD KEY `ID_Kurs` (`ID_Kurs`);
 
@@ -328,6 +328,7 @@ ALTER TABLE `kurs_dozentenrechnung`
 -- Indizes für die Tabelle `kurs_teilnehmer`
 --
 ALTER TABLE `kurs_teilnehmer`
+   ADD PRIMARY KEY (`ID_kurs_teilnehmer`),
   ADD KEY `ID_Kurs` (`ID_Kurs`),
   ADD KEY `ID_Teilnehmer` (`ID_Teilnehmer`);
 
@@ -382,6 +383,8 @@ ALTER TABLE `kurs_dozent`
 ALTER TABLE `kurs_dozentenrechnung`
   MODIFY `ID_DozentenRechnung` int(11) NOT NULL AUTO_INCREMENT;
 
+ALTER TABLE `kurs_teilnehmer`
+  MODIFY `ID_kurs_teilnehmer` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT für Tabelle `rechnung`
 --
