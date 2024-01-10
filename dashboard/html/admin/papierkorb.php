@@ -20,6 +20,15 @@
         <div class="center"> 
             <a href="../tas_admin.html"><img width="26px" height="26px" class="heading" src="../../res/zuruck.png"> </h2></a>
         </div>
+
+            <div style="word-spacing: 20px; text-align:center;"> 
+            <h4>
+                <a href="#teilnehmer"> Teilnehmer</a> 
+                <a href="#dozenten"> Dozenten</a> 
+                <a href="#betriebe"> Betriebe</a> 
+                <a href="#rechnungen"> Rechnungen</a>
+            </h4>
+            </div>
     <?php
        include '../../php/include/dbinclude.php';
        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -83,9 +92,10 @@
         }
     ?>
 
+
     <div><br>
     <table style="width: 100%;"> 
-                    <h2 style="text-align: center; margin-top: -0.1%;"> Archivierte Teilnehmer</h2> 
+                    <h2 style="text-align: center; margin-top: -0.1%;" id="teilnehmer"> Archivierte Teilnehmer</h2> 
                     <th> ID </th>
                     <th> Anrede </th>
                     <th> Vorname </th>
@@ -142,7 +152,7 @@
                 ?>
         </table> <br>
         <table style="width: 100%;"> 
-                    <h2 style="text-align: center; margin-top: -0.1%;">Archivierte Dozenten</h2> 
+                    <h2 style="text-align: center; margin-top: -0.1%;" id="dozenten">Archivierte Dozenten</h2> 
                     <th> ID </th>
                     <th> Anrede </th>
                     <th> Vorname </th>
@@ -192,7 +202,7 @@
                 ?>
         </table><br>
         <table style="width: 100%;">
-                    <h2 style="text-align: center; margin-top: -0.1%;"> Archivierte Betriebe</h2>  
+                    <h2 style="text-align: center; margin-top: -0.1%;" id="betriebe"> Archivierte Betriebe</h2>  
                     <th> ID </th>
                     <th> BetriebsName </th>
                     <th> Telefonnummer </th>
@@ -245,10 +255,10 @@
         </table>
         <br>
         <table style="width: 100%;">
-                    <h2 style="text-align: center; margin-top: -0.1%;"> Archivierte Rechnungen</h2>  
+                    <h2 style="text-align: center; margin-top: -0.1%;" id="rechnungen"> Archivierte Rechnungen</h2>  
                     <th> Vorname </th>
                     <th> Nachname </th>
-                    <th> Rchnungs ID </th>
+                    <th> Rechnungs ID </th>
                     <th> Rechnungs Nummer </th>
                     <th> Betrag </th>
                     <th> Bestellnummer </th>
