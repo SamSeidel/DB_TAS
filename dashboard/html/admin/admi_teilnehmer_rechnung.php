@@ -37,7 +37,8 @@
         }
         
         if(!empty($_POST["del_invoice"])) {
-            $delete = $conn->prepare("UPDATE rechnung SET rechnung.geloescht='1' WHERE ID_Rechnung=$_POST[del_invoice]");
+            $delete = $conn->prepare("UPDATE rechnung SET rechnung.geloescht='1' WHERE ID_Rechnung=:value");
+            $delete->bindparam(":value", $_POST["del_invoice"]);
             $delete->execute();
             header("Refresh: 0.1; url=$_SERVER[PHP_SELF]");
         }
