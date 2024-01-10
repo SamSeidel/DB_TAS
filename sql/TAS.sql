@@ -312,7 +312,7 @@ ALTER TABLE `kurs`
 -- Indizes für die Tabelle `kurs_dozent`
 --
 ALTER TABLE `kurs_dozent`
-  ADD PRIMARY KEY (`ID_kurs_dozent`),
+  --ADD PRIMARY KEY (`ID_kurs_dozent`),
   ADD KEY `ID_Dozent` (`ID_Dozent`),
   ADD KEY `ID_Kurs` (`ID_Kurs`);
 
@@ -374,8 +374,8 @@ ALTER TABLE `dozentenvertrag`
 ALTER TABLE `kurs`
   MODIFY `ID_Kurs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
-ALTER TABLE `kurs_dozent`
-  MODIFY `ID_kurs_dozent` int(11) NOT NULL AUTO_INCREMENT;
+--ALTER TABLE `kurs_dozent`
+  --MODIFY `ID_kurs_dozent` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT für Tabelle `kurs_dozentenrechnung`
 --
