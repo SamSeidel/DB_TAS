@@ -1,0 +1,78 @@
+CREATE VIEW Kurs_Teilnehmer_Dozent AS
+SELECT
+    k.Kursnummer AS Kurs_Kursnummer,
+    k.Kurstyp AS Kurs_Kurstyp,
+    k.Raum AS Kurs_Raum,
+    k.Kursbeschreibung AS Kurs_Kursbeschreibung,
+    k.KursBeginn AS Kurs_KursBeginn,
+    k.KursEnde AS Kurs_KursEnde,
+    d.Anrede AS Dozent_Anrede,
+    d.Vorname AS Dozent_Vorname,
+    d.Nachname AS Dozent_Nachname,
+    d.Telefonnummer AS Dozent_Telefonnummer,
+    d.Kürzel AS Dozent_Kürzel,
+    t.Anrede AS Teilnehmer_Anrede,
+    t.Vorname AS Teilnehmer_Vorname,
+    t.Nachname AS Teilnehmer_Nachname,
+    t.Email AS Teilnehmer_Email,
+    t.Telefonnummer AS Teilnehmer_Telefonnummer
+FROM kurs k
+JOIN kurs_dozent kd ON k.ID_Kurs = kd.ID_Kurs
+JOIN dozent d ON kd.ID_Dozent = d.ID_Dozent
+JOIN kurs_teilnehmer kt ON k.ID_Kurs = kt.ID_Kurs
+JOIN teilnehmer t ON kt.ID_Teilnehmer = t.ID_Teilnehmer;
+
+kurs: 	
+ID_Kurs
+Gebühr
+Kursnummer
+Kurstyp
+Raum
+Kursbeschreibung
+KursBeginn
+KursEnde
+plz
+stadt
+land
+minAnzahl
+maxAnzahl
+Archiviert
+
+dozent:
+ID_Dozent	
+Anrede	
+Vorname	
+Nachname	
+Geburtsdatum	
+Telefonnummer	
+Steuernummer	
+Kürzel	
+Strasse	
+Hausnummer	
+plz	
+stadt	
+land	
+geloescht
+
+teilnehmer:
+ID_Teilnehmer	
+Anrede	
+Vorname	
+Nachname	
+Email	
+Telefonnummer	
+Geburtsdatum	
+Strasse	
+Hausnummer	
+ID_Betrieb	
+PLZ	
+stadt	
+land	
+geloescht	
+
+kurs_dozent:
+Datum_Beginn	Datum_Ende	Anzahl_Einheiten	ID_Dozent	ID_Kurs	
+
+kurs_teilnehmer:
+Anfangszeitpunkt	Endzeitpunkt	ID_Kurs	ID_Teilnehmer	
+	

@@ -1,0 +1,16 @@
+CREATE VIEW Teilnehmer_Betrieb AS
+SELECT
+    t.Anrede AS Teilnehmer_Anrede,
+    t.Vorname AS Teilnehmer_Vorname,
+    t.Nachname AS Teilnehmer_Nachname,
+    t.Email AS `Teilnehmer_E-Mail`,
+    t.Telefonnummer AS Teilnehmer_Telefonnummer,
+    t.Strasse AS Teilnehmer_Strasse,
+    t.Hausnummer AS Teilnehmer_Hausnummer,
+    b.BetriebsName AS Betrieb_Name,
+    b.Telefonnummer AS Betrieb_Telefonnummer,
+    b.Strasse AS Betrieb_Strasse,
+    b.Hausnummer AS Betrieb_Hausnummer,
+    b.Rechnungsmail AS Betrieb_
+FROM teilnehmer t
+JOIN betrieb b ON t.ID_Betrieb = b.ID_Betrieb;
