@@ -79,8 +79,15 @@
         if(!empty($_POST["add_dozent"])) {
             if ($_SERVER["REQUEST_METHOD"] == "POST") { 
                 $conn->prepare("INSERT INTO dozent (Anrede, Vorname, Nachname, Geburtsdatum, Telefonnummer, Steuernummer, Kürzel) 
-                VALUES ($_POST[Anrede], $_POST[Vorname], $_POST[Nachname], $_POST[Geburtsdatum], $_POST[Telnummer], $_POST[Steuernummer], $_POST[Kuerzel])")->execute();
-                header("Refresh: 0.1; url=$_SERVER[PHP_SELF]");
+                VALUES (:anrede, :vorname, :nachname, :geburtsdatum, :telefonnummer, :steuernummer, :kuerzel)";
+                    $stmt->bindParam(':anrede', $_POST['Anrede']);
+                    $stmt->bindParam(':vorname', $_POST['Vorname']);
+                    $stmt->bindParam(':nachname', $_POST['Nachname']);
+                    $stmt->bindParam(':geburtsdatum', $_POST['Geburtsdatum']);
+                    $stmt->bindParam(':telefonnummer', $_POST['Telnummer']);
+                    $stmt->bindParam(':steuernummer', $_POST['Steuernummer']);
+                    $stmt->bindParam(':kuerzel', $_POST['Kuerzel']);
+                $stmt->execute();
             }
         }
         
