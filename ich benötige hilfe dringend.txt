@@ -14,14 +14,15 @@ Rechnung Fertig machen(die daten sind immernoch weird ka wie das sein kann  / wa
 Rechnung hinzufügen
 Rechnung zu paperkorb hinzufügen
 
+Papierkorb fixen (die abfrage nach löschen funktioniert nicht)
+Papierkorb machen mit überschriften und jumpen
 
 NOCH ZU MACHEN 
 
-Papierkorb machen mit überschriften und jumpen
 
 Teilnehmer Kurs hinzufügen
 
 PDF´s von Teilnehmer mit Rechnung :/ (wenn wir das noch brauchen)
 
-Papierkorb fixen (die abfrage nach löschen funktioniert nicht)
+
 
