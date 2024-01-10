@@ -182,7 +182,6 @@ INSERT INTO `kurs` (`ID_Kurs`, `Gebühr`, `Kursnummer`, `Kurstyp`, `Raum`, `Kurs
 --
 
 CREATE TABLE `kurs_dozent` (
-  `ID_kurs_dozent` int(11) NOT NULL,
   `Datum_Beginn` date DEFAULT NULL,
   `Datum_Ende` date DEFAULT NULL,
   `Anzahl_Einheiten` int(11) DEFAULT NULL,
@@ -212,7 +211,6 @@ CREATE TABLE `kurs_dozentenrechnung` (
 --
 
 CREATE TABLE `kurs_teilnehmer` (
-  `ID_kurs_teilnehmer` int(11) NOT NULL,
   `Anfangszeitpunkt` datetime DEFAULT NULL,
   `Endzeitpunkt` datetime DEFAULT NULL,
   `ID_Kurs` int(11) NOT NULL,
