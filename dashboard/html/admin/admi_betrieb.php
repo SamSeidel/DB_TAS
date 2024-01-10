@@ -42,11 +42,6 @@
             }
         }
         
-        /*if(!empty($_POST["del_dozent"])) {
-            if ($_SERVER["REQUEST_METHOD"] == "POST") { 
-                deleteDozent($conn, "dozent", $_POST["del_dozent"]);
-            }
-        }*/
         /**
          * PDO Update Method
          * $conn        ; The connection to the server
@@ -100,7 +95,6 @@
                     while($row = $stmt->fetch()) {
                         if($row["geloescht"] == NULL) {
                         ?>
-
                         <tr> 
                         <form action="<?= $_SERVER['PHP_SELF']?>" method="POST">
                             <td> <input value="<?php echo $row["ID_Betrieb"]?>" readonly name="id" type="text" class="edit"></td>

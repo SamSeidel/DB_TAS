@@ -79,7 +79,7 @@
         if(!empty($_POST["add_dozent"])) {
             if ($_SERVER["REQUEST_METHOD"] == "POST") { 
                 $conn->prepare("INSERT INTO dozent (Anrede, Vorname, Nachname, Geburtsdatum, Telefonnummer, Steuernummer, Kürzel) 
-                VALUES (:anrede, :vorname, :nachname, :geburtsdatum, :telefonnummer, :steuernummer, :kuerzel)";
+                VALUES (:anrede, :vorname, :nachname, :geburtsdatum, :telefonnummer, :steuernummer, :kuerzel)");
                     $stmt->bindParam(':anrede', $_POST['Anrede']);
                     $stmt->bindParam(':vorname', $_POST['Vorname']);
                     $stmt->bindParam(':nachname', $_POST['Nachname']);
@@ -90,7 +90,6 @@
                 $stmt->execute();
             }
         }
-        
 
     ?>
     </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <title>TAS | Teilnehmer Rechnung</title>
+    <title>Beastmode | TAS</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,15 +30,12 @@
                 $fields = array("RE_Nummer", "Zahlungsfrist", "Betrag", "Bezahldatum", "Bestellnummer", "Mahnungsdatum", "ID_Kurs");
                 foreach ($fields as $key) {
                     updateInvoice($conn, "rechnung", $key, $_POST[$key], $_POST["cng_invoice"]);
-
-                 // updateInvoice($conn, "rechnung", "betrag",$_POST["betrag"],  $_POST["cng_invoice"]);
                 }
             }
         }
         
         if(!empty($_POST["del_invoice"])) {
-            $delete = $conn->prepare("UPDATE rechnung SET rechnung.geloescht='1' WHERE ID_Rechnung=:value");
-            $delete->bindparam(":value", $_POST["del_invoice"]);
+            $delete = $conn->prepare("UPDATE rechnung SET rechnung.geloescht='1' WHERE ID_Rechnung=$_POST[del_invoice]");
             $delete->execute();
             header("Refresh: 0.1; url=$_SERVER[PHP_SELF]");
         }
@@ -136,7 +133,7 @@
             <table style="width: 100%;"> 
                     <th> Vorname </th>
                     <th> Nachname </th>
-                    <th> Rchnungs ID </th>
+                    <th> Rechnungs ID </th>
                     <th> Rechnungs Nummer </th>
                     <th> Betrag </th>
                     <th> Bestellnummer </th>

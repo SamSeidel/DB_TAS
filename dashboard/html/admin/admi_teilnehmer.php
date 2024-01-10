@@ -28,16 +28,16 @@
         $stmt = $conn->prepare("SELECT * FROM teilnehmer");
         $stmt->execute();
 
-        if(isset($_POST["cng_teilnehmer"])) {
+        if(!empty($_POST["cng_teilnehmer"])) {
             if ($_SERVER["REQUEST_METHOD"] == "POST") { 
                 $fields = array("Anrede", "Vorname", "Nachname", "Email", "Telefonnummer", "Geburtsdatum", "land", "stadt", "Strasse", "Hausnummer");
                 foreach ($fields as $key) {
-                    updateTeilnehmer($conn, "teilnehmer", $key, $_POST[$key], $_POST["cng_teilnehmer"]);
+                    updateTeilnehmer( $conn, "teilnehmer", $key, $_POST[$key], $_POST["cng_teilnehmer"]);
                 }
             }
         }
         
-        if(isset($_POST["del_teilnehmer"])) {
+        if(!empty($_POST["del_teilnehmer"])) {
             if ($_SERVER["REQUEST_METHOD"] == "POST") { 
                 deleteTeilnehmer($conn, "teilnehmer", $_POST["del_teilnehmer"]);
             }
@@ -103,25 +103,25 @@
 
                         <tr> 
                         <form action="<?= $_SERVER['PHP_SELF']?>" method="POST">
-                            <td> <input value="<?php echo $row["ID_Teilnehmer"]?>" readonly name="id" type="text" class="edit"></td>
-                            <td> <input value="<?php echo $row["Anrede"]?>" name="anrede" type="text" class="edit"></td>
-                            <td> <input value="<?php echo $row["Vorname"]?>" name="vorname" type="text" class="edit"></td>
-                            <td> <input value="<?php echo $row["Nachname"]?>" name="nachname" type="text" class="edit"></td>
-                            <td> <input value="<?php echo $row["Email"]?>" name="email" type="text" class="edit"></td>
-                            <td> <input value="<?php echo $row["Telefonnummer"]?>" name="telnummer" type="text" class="edit"></td>
-                            <td> <input value="<?php echo $row["Geburtsdatum"]?>" name="geburtsdatum" type="text" class="edit"></td>
+                            <td> <input value="<?php echo $row["ID_Teilnehmer"]?>" readonly name="ID_Teilnehmer" type="text" class="edit"></td>
+                            <td> <input value="<?php echo $row["Anrede"]?>" name="Anrede" type="text" class="edit"></td>
+                            <td> <input value="<?php echo $row["Vorname"]?>" name="Vorname" type="text" class="edit"></td>
+                            <td> <input value="<?php echo $row["Nachname"]?>" name="Nachname" type="text" class="edit"></td>
+                            <td> <input value="<?php echo $row["Email"]?>" name="Email" type="text" class="edit"></td>
+                            <td> <input value="<?php echo $row["Telefonnummer"]?>" name="Telefonnummer" type="text" class="edit"></td>
+                            <td> <input value="<?php echo $row["Geburtsdatum"]?>" name="Geburtsdatum" type="text" class="edit"></td>
                             <td> <input value="<?php echo $row["land"]?>" name="land" type="text" class="edit"></td>
                             <td> <input value="<?php echo $row["stadt"]?>" name="stadt" type="text" class="edit"></td>
-                            <td> <input value="<?php echo $row["Strasse"]?>" name="strasse" type="text" class="edit"></td>
-                            <td> <input value="<?php echo $row["Hausnummer"]?>" name="hausnr" type="text" class="edit"></td>
+                            <td> <input value="<?php echo $row["Strasse"]?>" name="Strasse" type="text" class="edit"></td>
+                            <td> <input value="<?php echo $row["Hausnummer"]?>" name="Hausnummer" type="text" class="edit"></td>
                             
                             <td>  
-                                    <button type="submit" name="cng_teilnehmer" value="<?php echo $row["ID_Teilnehmer"]?>" style="border:none; background-color: #ececec;"> 
-                                            <img src="../../res/recycling.png" title="Daten aktualisieren" style="width:24px; height:24px;">
-                                    </button>
-                                </form>
-                            </td>
-                            <td>
+                                 <button type="submit" name="cng_teilnehmer" value="<?php echo $row["ID_Teilnehmer"]?>" style="border:none; background-color: #ececec;"> 
+                                        <img src="../../res/recycling.png" title="Daten aktualisieren" style="width:24px; height:24px;">
+                                </button>
+                            </form>
+                          </td>
+                        <td>
                             <form action="<?= $_SERVER['PHP_SELF']?>" method="POST">
                                     <button type="submit" name="del_teilnehmer" value="<?php echo $row["ID_Teilnehmer"]?>" style="border:none; background-color: #ececec;">
                                             <img src="../../res/entfernen.png" title="Teilnehmer Archivieren" style="width:24px; height:24px; background-color: #ececec;">
