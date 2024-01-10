@@ -17,6 +17,8 @@ Rechnung zu paperkorb hinzufügen
 
 NOCH ZU MACHEN 
 
+Papierkorb machen mit überschriften und jumpen
+
 Teilnehmer Kurs hinzufügen
 
 PDF´s von Teilnehmer mit Rechnung :/ (wenn wir das noch brauchen)
