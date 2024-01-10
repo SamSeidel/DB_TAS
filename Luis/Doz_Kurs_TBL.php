@@ -100,95 +100,102 @@
             <h3> Hinzufügen </h3>
         </div>
         <div>
-        <table style="width: 98.5%;"> 
-        <th> Beginn </th>
-        <th> Ende </th>
-        <th> Anzahl Einheit </th>
-        <th> Dozenten </th>
-        <th> Kurs </th>
-        <th></th>
+        <table style="width: 98.5%;">
         
-                <tr> 
-                <form action="<?= $_SERVER['PHP_SELF']?>" method="POST">
-                <table style="width: 100%;">
-<tr>
-    <td> <input placeholder="StartDatum:" name="Beginn2" type="date" class="edit"></td>
-    <td> <input placeholder="Endzeitpunkt:" name="Ende2" type="date" class="edit"></td>
-    <td> <input placeholder="Anz Einheiten:" name="Einheiten2" type="text" class="edit"></td>
+    <thead>
+        <th>Beginn</th>
+        <th>Ende</th>
+        <th>Anzahl Einheit</th>
+        <th>Dozenten</th>
+        <th>Kurs</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <form action="<?= $_SERVER['PHP_SELF']?>" method="POST">
+                <td><input placeholder="StartDatum:" name="Beginn2" type="date" class="edit"></td>
+                <td><input placeholder="Endzeitpunkt:" name="Ende2" type="date" class="edit"></td>
+                <td><input placeholder="Anz Einheiten:" name="Einheiten2" type="text" class="edit"></td>
 
-                        <td> 
-                                <select name="ID_Dozent2" class="edit">
-                                    <?php 
-                                    $DOZ= $conn->prepare("SELECT ID_Dozent, Nachname FROM dozent");
-                                    $DOZ->execute();
-                                    while($row = $DOZ->fetch()) { ?>
-                                        <option value="<?php echo $row["ID_Dozent"]?>"> <?php echo $row["Nachname"] ?></option>
-                                    <?php } ?>
-                                </select>
-                        </td>
+                <td>
+                    <select name="ID_Dozent2" class="edit">
+                        <?php 
+                        $DOZ = $conn->prepare("SELECT ID_Dozent, Nachname FROM dozent");
+                        $DOZ->execute();
+                        while($row = $DOZ->fetch()) { ?>
+                            <option value="<?php echo $row["ID_Dozent"]?>"><?php echo $row["Nachname"] ?></option>
+                        <?php } ?>
+                    </select>
+                </td>
 
-                        <td> 
-                                <select name="ID_Kurs2" class="edit">
-                                    <?php 
-                                    $Kurs= $conn->prepare("SELECT ID_Kurs, Kursbeschreibung FROM Kurs");
-                                    $Kurs->execute();
-                                    while($row = $Kurs->fetch()) { ?>
-                                        <option value="<?php echo $row["ID_Kurs"]?>"> <?php echo $row["Kursbeschreibung"] ?></option>
-                                    <?php } ?>
-                                </select>
-                        </td>
-                        <button type="submit" name="add_rechnung" style="border:none; background-color: #ececec;">
-                                <img src="../../res/hinzufugen.png" style="width:24px; height:24px; margin-bottom:35%; margin-left:60%; background-color: #ececec;">
-                        </button>
-                    </form>
-                    </td>
-                </tr>
-        </table>
+                <td>
+                    <select name="ID_Kurs2" class="edit">
+                        <?php 
+                        $Kurs = $conn->prepare("SELECT ID_Kurs, Kursbeschreibung FROM Kurs");
+                        $Kurs->execute();
+                        while($row = $Kurs->fetch()) { ?>
+                            <option value="<?php echo $row["ID_Kurs"]?>"><?php echo $row["Kursbeschreibung"] ?></option>
+                        <?php } ?>
+                    </select>
+                </td>
+
+                <td>
+                    <button type="submit" name="add_rechnung" style="border:none; background-color: #ececec;">
+                        <img src="../../res/hinzufugen.png" style="width:24px; height:24px; margin-bottom:35%; margin-left:60%; background-color: #ececec;">
+                    </button>
+                </td>
+            </form>
+        </tr>
+    </tbody>
+</table>
+
     </div>
     <div><br>
-            <table style="width: 100%;"> 
-            <th> Beginn </th>
-        <th> Ende </th>
-        <th> Anzahl Einheit </th>
-        <th> Dozenten </th>
-        <th> Kurs </th>
+    <table style="width: 100%;">
+    <thead>
+        <th>Beginn</th>
+        <th>Ende</th>
+        <th>Anzahl Einheit</th>
+        <th>Dozenten</th>
+        <th>Kurs</th>
         <th></th>
         <th></th>
+    </thead>
+    <tbody>
+        <?php 
+            $teilnehmer = $conn->prepare("SELECT * FROM kurs_dozent
+            LEFT JOIN dozent ON dozent.ID_Dozent = kurs_dozent.ID_Dozent
+            LEFT JOIN kurs ON kurs.ID_Kurs = kurs_dozent.ID_Kurs 
+            WHERE kurs_dozent.geloescht!=1");
 
-                <?php 
-                    $teilnehmer = $conn->prepare("SELECT * FROM kurs_dozent
-                    LEFT JOIN dozent ON dozent.ID_Dozent = kurs_dozent.ID_Dozent
-                    LEFT JOIN kurs ON kurs.ID_Kurs = kurs_dozent.ID_Kurs 
-                    WHERE kurs_dozent.geloescht!=1");
+            $teilnehmer->execute();
+            while($row = $teilnehmer->fetch()) {
+        ?>
+        <tr> 
+            <form action="<?= $_SERVER['PHP_SELF']?>" method="POST">
+                <td><input value="<?php echo $row["Datum_Beginn"] ?>" name="Beginn" type="date" class="edit"></td>
+                <td><input value="<?php echo $row["Datum_Ende"] ?>" name="Ende" type="date" class="edit"></td>
+                <td><input value="<?php echo $row["Anzahl_Einheiten"] ?>" name="Einheiten" type="text" class="edit"></td>
+                <td><input value="<?php echo $row["ID_Dozent"] ?>" name="Dozent" type="text" class="edit"></td>
+                <td><input value="<?php echo $row["ID_Kurs"] ?>" name="kurs" type="text" class="edit"></td>
+                <td>
+                    <button type="submit" name="cng_invoice" value="<?php echo $row["ID_Dozent"]?>" style="border:none; background-color: #ececec;"> 
+                        <img src="../../res/recycling.png" title="Daten aktualisieren" style="width:24px; height:24px;">
+                    </button>
+                </td>
+                <td>
+                    <form action="<?= $_SERVER['PHP_SELF']?>" method="POST">
+                        <button type="submit" name="del_invoice" value="<?php echo $row["ID_Dozent"]?>" style="border:none; background-color: #ececec;">
+                            <img src="../../res/entfernen.png" title="Rechnung Archivieren" style="width:24px; height:24px; background-color: #ececec;">
+                        </button>
+                    </form>
+                </td>
+            </form>
+        </tr>
+        <?php } ?>
+    </tbody>
+</table>
 
-                    $teilnehmer->execute();
-                    while($row = $teilnehmer->fetch()) {
-                        ?>
-
-                        <tr> 
-                        <form action="<?= $_SERVER['PHP_SELF']?>" method="POST">
-                        <td> <input value="<?php echo $row["Datum_Beginn"] ?>" name="Beginn" type="date" class="edit"></td>
-                    <td> <input value="<?php echo $row["Datum_Ende"] ?>" name="Ende" type="date" class="edit"></td>
-                    <td> <input value="<?php echo $row["Anzahl_Einheiten"] ?>" name="Einheiten" type="text" class="edit"></td>
-                    <td> <input value="<?php echo $row["ID_Dozent"] ?>" name="Dozent" type="text" class="edit"></td>
-                    <td> <input value="<?php echo $row["ID_Kurs"] ?>" name="kurs" type="text" class="edit"></td>
-                    <td>
-                                 <button type="submit" name="cng_invoice" value="<?php echo $row["ID_Dozent"]?>" style="border:none; background-color: #ececec;"> 
-                                         <img src="../../res/recycling.png" title="Daten aktualisieren" style="width:24px; height:24px;">
-                                    </button>
-                                </form>
-                            </td>
-                            <td>
-                            <form action="<?= $_SERVER['PHP_SELF']?>" method="POST">
-                                <button type="submit" name="del_invoice" value="<?php echo $row["ID_Dozent"]?>" style="border:none; background-color: #ececec;">
-                                           <img src="../../res/entfernen.png" title="Rechnung Archivieren" style="width:24px; height:24px; background-color: #ececec;">
-                                    </button>
-                                </form>
-                            </td>
-                            
-                     </tr>
-                <?php } ?>
-        </table>
     </div>
 </body>
 </html>

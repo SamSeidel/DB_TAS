@@ -81,11 +81,10 @@
 
          //NEU
          if (isset($_POST['add_rechnung'])) {
-            $Hinzufügen = $conn->prepare("INSERT INTO dozentenvertrag (Vertragsgegenstand, Vertragsbeginn, Vertragsende, Honorar, ID_Dozent)
-            VALUES (':id_rech', ':gegenstand', ':beginn', ':ende', ':honorar', ':id_doz' )");
+            $Hinzufügen = $conn->prepare("INSERT INTO dozentenvertrag (Vertragsgegenstand, Vertragsbeginn, Vertragsende, Honorar, ID_Dozent )
+            VALUES (:gegenstand, :beginn, :ende, :honorar, :id_doz )");
         
 
-          $Hinzufügen->bindParam(':id_rech', $_POST["id_Rechnung2"]);
           $Hinzufügen->bindParam(':gegenstand', $_POST["Vertragsgegenstand2"]);
           $Hinzufügen->bindParam(':beginn', $_POST["Vertragsbeginn2"]);
           $Hinzufügen->bindParam(':ende', $_POST["Vertragsende2"]);
@@ -102,88 +101,96 @@
     </div>
 
     <div>
-        <table style="width: 98.5%;"> 
-            <tr>
-                    <th> Kürzel </th>
-                    <th> Steuernummer </th>
-                    <th> Vertragsgegenstand </th>
-                    <th> Vertragsbeginn </th>
-                    <th> Vertragsende </th>
-                    <th> Honorar </th>
-                    <th> ID_Dozent </th>
-                    <th></th>
-            </tr>
-            <tr>
+    <table style="width: 98.5%;">
+    <tr>
+        <th>Vertragsgegenstand</th>
+        <th>Vertragsbeginn</th>
+        <th>Vertragsende</th>
+        <th>Honorar</th>
+        <th>ID_Dozent</th>
+        <th></th>
+    </tr>
+    <tr>
+        <!-- Formular für Neu -->
+        <form action="<?= $_SERVER['PHP_SELF']?>" method="POST">
+            <td><input name="Vertragsgegenstand2" type="text" class="edit" placeholder="Vertragsgegenstand:"></td>
+            <td><input name="Vertragsbeginn2" type="date" class="edit" placeholder="Vertragsbeginn:"></td>
+            <td><input name="Vertragsende2" type="date" class="edit" placeholder="Vertragsende:"></td>
+            <td><input name="Honorar2" type="text" class="edit" placeholder="Honorar:"></td>
+            <td> 
+                <select name="ID_Dozent2" class="edit">
+                    <?php 
+                    $Kurs = $conn->prepare("SELECT ID_Dozent, Nachname FROM dozent");
+                    $Kurs->execute();
+                    while($row = $Kurs->fetch()) { ?>
+                        <option value="<?php echo $row["ID_Dozent"]?>"><?php echo $row["Nachname"] ?></option>
+                    <?php } ?>
+                </select>
+            </td>
+            <td>
+                <!-- Formular Neu -->
+                <button type="submit" name="create_invoice" value="<?php echo $row["ID_Honorarvertrag"]?>" style="border:none; background-color: #ececec;">
+                    <img src="../../res/erstellen.png" title="Vertrag Erstellen" alt="Rechnung Erstellen" style="width:24px; height:24px; background-color: #ececec;">
+                </button>
+            </td>
+        </form>
+    </tr>
+</table>
 
-            <?php//Form Für Neu?>
-
-                <form action="<?= $_SERVER['PHP_SELF']?>" method="POST">
-                    <input name="Vertragsgegenstand2" type="text" class="edit" placeholder="Vertragsgegenstand:">
-                    <input name="Vertragsbeginn2" type="date" class="edit" placeholder="Vertragsbeginn:">
-                    <input name="Vertragsende2" type="date" class="edit" placeholder="Vertragsende:">
-                    <input name="Honorar2" type="text" class="edit" placeholder="Honorar:">
-
-                    <select name="ID_Dozent2" class="edit">
-                                    <?php 
-                                    $Kurs= $conn->prepare("SELECT ID_Dozent, Nachname FROM dozent");
-                                    $Kurs->execute();
-                                    while($row = $Kurs->fetch()) { ?>
-                                        <option value="<?php echo $row["ID_Dozent"]?>"> <?php echo $row["Nachname"] ?></option>
-                                    <?php } ?>
-                                </select>
-                </form>
-            </tr>
-        </table>
     </div>
 
     <div><br>
-        <table style="width: 100%;"> 
-       
+    <table style="width: 100%;">
+    <tr>
+        <th>Kürzel</th>
+        <th>Steuernummer</th>
+        <th>Vertragsgegenstand</th>
+        <th>Vertragsbeginn</th>
+        <th>Vertragsende</th>
+        <th>Honorar</th>
+        <th>ID_Dozent</th>
+        <th></th>
+        <th></th>
+    </tr>
 
-            <?php 
-               $VertragDOZ = $conn->prepare("SELECT dozent.ID_Dozent, dozent.Steuernummer, dozent.Kürzel, dozentenvertrag.ID_Honorarvertrag, dozentenvertrag.Vertragsgegenstand, dozentenvertrag.Vertragsbeginn, dozentenvertrag.Vertragsende, dozentenvertrag.Honorar, dozentenvertrag.ID_Dozent 
-               FROM dozentenvertrag
-               LEFT JOIN dozent ON dozent.ID_Dozent = dozentenvertrag.ID_Dozent");
-                $VertragDOZ->execute();
-                while($row = $VertragDOZ->fetch()) {
-            ?>
+    <?php 
+        $VertragDOZ = $conn->prepare("SELECT dozent.ID_Dozent, dozent.Steuernummer, dozent.Kürzel, dozentenvertrag.ID_Honorarvertrag, dozentenvertrag.Vertragsgegenstand, dozentenvertrag.Vertragsbeginn, dozentenvertrag.Vertragsende, dozentenvertrag.Honorar, dozentenvertrag.ID_Dozent 
+        FROM dozentenvertrag
+        LEFT JOIN dozent ON dozent.ID_Dozent = dozentenvertrag.ID_Dozent");
+        $VertragDOZ->execute();
+        while($row = $VertragDOZ->fetch()) {
+    ?>
 
-            <tr> 
-                
-                <form action="<?= $_SERVER['PHP_SELF']?>" method="POST">
-                            <td> <input value="<?php echo $row["Kürzel"]?>" name="kuerzel" type="text" class="edit"></td>
-                            <td> <input value="<?php echo $row["Steuernummer"]?>" name="steuernum" type="text" class="edit"></td>
-                            <td> <input value="<?php echo $row["Vertragsgegenstand"]?>" name="vergegenst" type="text" class="edit"></td>
-                            <td> <input value="<?php echo $row["Vertragsbeginn"]?>" name="verbeginn" type="text" class="edit"></td>
-                            <td> <input value="<?php echo $row["Vertragsende"]?>" name="verende" type="text" class="edit"></td>
-                            <td> <input value="<?php echo $row["Honorar"]?>" name="honorar" type="text" class="edit"></td>
-                            <td> <input value="<?php echo $row["ID_Dozent"]?>" name="id_dozent" type="text" class="edit"></td>
+    <tr> 
+        <!-- Formular für CNG -->
+        <form action="<?= $_SERVER['PHP_SELF']?>" method="POST">
+            <td><input value="<?php echo $row["Kürzel"]?>" name="kuerzel" type="text" class="edit"></td>
+            <td><input value="<?php echo $row["Steuernummer"]?>" name="steuernum" type="text" class="edit"></td>
+            <td><input value="<?php echo $row["Vertragsgegenstand"]?>" name="vergegenst" type="text" class="edit"></td>
+            <td><input value="<?php echo $row["Vertragsbeginn"]?>" name="verbeginn" type="text" class="edit"></td>
+            <td><input value="<?php echo $row["Vertragsende"]?>" name="verende" type="text" class="edit"></td>
+            <td><input value="<?php echo $row["Honorar"]?>" name="honorar" type="text" class="edit"></td>
+            <td><input value="<?php echo $row["ID_Dozent"]?>" name="id_dozent" type="text" class="edit"></td>
+            <td>
+                <!-- Formular CNG -->
+                <button type="submit" name="cng_invoice" value="<?php echo $row["ID_Honorarvertrag"]?>" style="border:none; background-color: #ececec;"> 
+                    <img src="../../res/recycling.png" title="Daten aktualisieren" style="width:24px; height:24px;">
+                </button>
+            </td>
+        </form>
 
-                            <?php//form CNG?>
-                            <td>  
-                                 <button type="submit" name="cng_invoice" value="<?php echo $row["ID_Honorarvertrag"]?>" style="border:none; background-color: #ececec;"> 
-                                         <img src="../../res/recycling.png" title="Daten aktualisieren" style="width:24px; height:24px;">
-                                    </button>
-                                </form>
-                            </td> 
-                </form>
+        <!-- Formular DEL -->
+        <form action="<?= $_SERVER['PHP_SELF']?>" method="POST">
+            <td>
+                <button type="submit" name="del_invoice" value="<?php echo $row["ID_Honorarvertrag"]?>" style="border:none; background-color: #ececec;">
+                    <img src="../../res/entfernen.png" title="Vertrag Archivieren" style="width:24px; height:24px; background-color: #ececec;">
+                </button>
+            </td> 
+        </form>
+    </tr>
+    <?php } ?>
+</table>
 
-                <?php//form DEL?>
-                <form action="<?= $_SERVER['PHP_SELF']?>" method="POST">
-                                <button type="submit" name="del_invoice" value="<?php echo $row["ID_Honorarvertrag"]?>" style="border:none; background-color: #ececec;">
-                                        <img src="../../res/entfernen.png" title="Vertrag Archivieren" style="width:24px; height:24px; background-color: #ececec;">
-                                  </button>
-                </form>
-
-                <?php//form NEU?>
-                <form action="<?= $_SERVER['PHP_SELF']?>" method="POST">
-                <button type="submit" name="create_invoice" value="<?php echo $row["ID_Honorarvertrag"]?>" style="border:none; background-color: #ececec;">
-                                            <img src="../../res/erstellen.png" title="Vertrag erstellen" alt="Rechnung Erstellen" style="width:24px; height:24px; background-color: #ececec;">
-                                </button>
-                </form>
-            </tr>
-            <?php } ?>
-        </table>
     </div>
 </body>
 </html>
