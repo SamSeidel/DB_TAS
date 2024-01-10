@@ -188,7 +188,8 @@ CREATE TABLE `kurs_dozent` (
   `Datum_Ende` date DEFAULT NULL,
   `Anzahl_Einheiten` int(11) DEFAULT NULL,
   `ID_Dozent` int(11) DEFAULT NULL,
-  `ID_Kurs` int(11) DEFAULT NULL
+  `ID_Kurs` int(11) DEFAULT NULL,
+  `geloescht` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -203,7 +204,8 @@ CREATE TABLE `kurs_dozentenrechnung` (
   `Datum_Bezahl` date DEFAULT NULL,
   `Dozentenrechnungslink` mediumtext DEFAULT NULL,
   `ID_Dozent` int(11) DEFAULT NULL,
-  `ID_Kurs` int(11) DEFAULT NULL
+  `ID_Kurs` int(11) DEFAULT NULL,
+  `geloescht` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -216,7 +218,8 @@ CREATE TABLE `kurs_teilnehmer` (
   `Anfangszeitpunkt` datetime DEFAULT NULL,
   `Endzeitpunkt` datetime DEFAULT NULL,
   `ID_Kurs` int(11) NOT NULL,
-  `ID_Teilnehmer` int(11) NOT NULL
+  `ID_Teilnehmer` int(11) NOT NULL,
+  `geloescht` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
