@@ -26,7 +26,8 @@
        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
        if(!empty($_POST["cng_dozent"])) { 
-           $dozent = $conn->prepare("UPDATE dozent SET geloescht='NULL' WHERE id_dozent=$_POST[cng_dozent]");
+           $dozent = $conn->prepare("UPDATE dozent SET geloescht='NULL' WHERE id_dozent=:value");
+           $dozent->bindparam(":value", $_POST["cng_dozent"]);
            $dozent->execute();
            header("Refresh: 0.1; url=$_SERVER[PHP_SELF]");
        }
@@ -35,10 +36,12 @@
             $dozentlöschen = $conn->prepare("DELETE FROM dozent WHERE id_dozent=:value");
             $dozentlöschen->bindparam(":value", $_POST["del_dozent"]);
             $dozentlöschen->execute();
+            header("Refresh: 0.1; url=$_SERVER[PHP_SELF]");
        }   
 
        if(!empty($_POST["cng_teilnehmer"])) { 
-           $teilnehmer = $conn->prepare("UPDATE teilnehmer SET geloescht='NULL' WHERE id_teilnehmer=$_POST[cng_teilnehmer]");
+           $teilnehmer = $conn->prepare("UPDATE teilnehmer SET geloescht='NULL' WHERE id_teilnehmer=:value");
+           $teilnehmer->bindparam(":value", $_POST["cng_teilnehmer"]);
            $teilnehmer->execute();
            header("Refresh: 0.1; url=$_SERVER[PHP_SELF]");
        }
@@ -47,10 +50,12 @@
             $teilnehmerlöschen = $conn->prepare("DELETE FROM teilnehmer WHERE id_teilnehmer=:value");
             $teilnehmerlöschen->bindparam(":value", $_POST["del_teilnehmer"]);
             $teilnehmerlöschen->execute();
+            header("Refresh: 0.1; url=$_SERVER[PHP_SELF]");
         }
 
         if(!empty($_POST["cng_betrieb"])) { 
-            $betrieb = $conn->prepare("UPDATE betrieb SET geloescht='NULL' WHERE id_betrieb=$_POST[cng_betrieb]");
+            $betrieb = $conn->prepare("UPDATE betrieb SET geloescht='NULL' WHERE id_betrieb=:value");
+            $betrieb->bindparam(":value", $_POST["cng_betrieb"]);
             $betrieb->execute();
             header("Refresh: 0.1; url=$_SERVER[PHP_SELF]");
         }
@@ -64,7 +69,8 @@
         }
 
         if(!empty($_POST["cng_invoice"])) { 
-            $rechnung = $conn->prepare("UPDATE rechnung SET rechnung.geloescht='0' WHERE id_rechnung=$_POST[cng_invoice]");
+            $rechnung = $conn->prepare("UPDATE rechnung SET rechnung.geloescht='0' WHERE id_rechnung=:value");
+            $betrieb->bindparam(":value", $_POST["cng_invoice"]);
             $rechnung->execute();
             header("Refresh: 0.1; url=$_SERVER[PHP_SELF]");
         }
