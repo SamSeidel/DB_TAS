@@ -36,43 +36,45 @@ CREATE TABLE `betrieb` (
   `Rechnungsmail` varchar(128) DEFAULT NULL,
   `PLZ` int(18) DEFAULT NULL,
   `stadt` varchar(255) DEFAULT NULL,
-  `land` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `land` varchar(255) DEFAULT NULL,
+  `geloescht` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Daten für Tabelle `betrieb`
 --
 
-INSERT INTO `betrieb` (`ID_Betrieb`, `BetriebsName`, `Telefonnummer`, `Strasse`, `Hausnummer`, `Rechnungsmail`, `PLZ`, `stadt`, `land`) VALUES
-(1, 'ABC Corporation', '123-456-7890', 'Hauptstraße', 123, 'abc@example.com', NULL, NULL, NULL),
-(2, 'XYZ Industries', '987-654-3210', 'Musterweg', 456, 'xyz@example.com', NULL, NULL, NULL),
-(3, 'Smith & Co.', '555-123-4567', 'Eichenallee', 789, 'smith@example.com', NULL, NULL, NULL),
-(4, 'Johnson Ltd.', '888-555-1234', 'Buchenweg', 101, 'johnson@example.com', NULL, NULL, NULL),
-(5, 'Doe Enterprises', '777-333-2222', 'Lindenstraße', 55, 'doe@example.com', NULL, NULL, NULL),
-(6, 'Tech Solutions', '111-222-3333', 'Ahornweg', 77, 'tech@example.com', NULL, NULL, NULL),
-(7, 'Blue Widgets Inc.', '444-555-6666', 'Eschenweg', 22, 'blue@example.com', NULL, NULL, NULL),
-(8, 'Green Systems', '222-333-4444', 'Kiefernweg', 33, 'green@example.com', NULL, NULL, NULL),
-(9, 'Red Innovations', '666-777-8888', 'Birkenweg', 44, 'red@example.com', NULL, NULL, NULL),
-(10, 'Yellow Enterprises', '999-888-7777', 'Tannenweg', 66, 'yellow@example.com', NULL, NULL, NULL),
-(11, 'Purple Solutions', '777-999-1111', 'Ulmenweg', 99, 'purple@example.com', NULL, NULL, NULL),
-(12, 'Orange Widgets', '333-666-9999', 'Kastanienweg', 11, 'orange@example.com', NULL, NULL, NULL),
-(13, 'Brown Technologies', '444-222-1111', 'Erlenweg', 88, 'brown@example.com', NULL, NULL, NULL),
-(14, 'Silver Systems', '222-111-4444', 'Fichtenweg', 77, 'silver@example.com', NULL, NULL, NULL),
-(15, 'Gold Innovations', '555-444-3333', 'Akazienweg', 55, 'gold@example.com', NULL, NULL, NULL),
-(16, 'Platinum Enterprises', '888-777-6666', 'Hainweg', 33, 'platinum@example.com', NULL, NULL, NULL),
-(17, 'Diamond Corporation', '777-555-2222', 'Weidenweg', 22, 'diamond@example.com', NULL, NULL, NULL),
-(18, 'Pearl Solutions', '222-333-4444', 'Kirschweg', 66, 'pearl@example.com', NULL, NULL, NULL),
-(19, 'Ruby Widgets', '666-777-8888', 'Ebereschenweg', 44, 'ruby@example.com', NULL, NULL, NULL),
-(20, 'Emerald Systems', '555-999-1111', 'Schlehenweg', 99, 'emerald@example.com', NULL, NULL, NULL),
-(21, 'Sapphire Enterprises', '333-666-9999', 'Apfelweg', 11, 'sapphire@example.com', NULL, NULL, NULL),
-(22, 'Topaz Innovations', '777-111-4444', 'Brombeerweg', 88, 'topaz@example.com', NULL, NULL, NULL),
-(23, 'Amber Technologies', '222-888-3333', 'Holunderweg', 77, 'amber@example.com', NULL, NULL, NULL),
-(24, 'Crimson Widgets', '444-222-7777', 'Himbeerweg', 55, 'crimson@example.com', NULL, NULL, NULL),
-(25, 'Azure Systems', '999-777-4444', 'Stachelbeerweg', 33, 'azure@example.com', NULL, NULL, NULL),
-(26, 'Cobalt Corporation', '555-666-3333', 'Johannisbeerweg', 22, 'cobalt@example.com', NULL, NULL, NULL),
-(27, 'Indigo Solutions', '333-444-6666', 'Blaubeerweg', 66, 'indigo@example.com', NULL, NULL, NULL),
-(28, 'Magenta Enterprises', '666-555-8888', 'Preiselbeerweg', 44, 'magenta@example.com', NULL, NULL, NULL),
-(29, 'Violet Innovations', '222-888-1111', 'Waldweg', 99, 'violet@example.com', NULL, NULL, NULL);
+INSERT INTO `betrieb` (`ID_Betrieb`, `BetriebsName`, `Telefonnummer`, `Strasse`, `Hausnummer`, `Rechnungsmail`, `PLZ`, `stadt`, `land`, `geloescht`) VALUES
+(1, 'ABC Corporation', '123-456-7890', 'Hauptstraße', 123, 'abc@example.com', NULL, NULL, NULL, NULL),
+(2, 'XYZ Industries', '987-654-3210', 'Musterweg', 456, 'xyz@example.com', NULL, NULL, NULL, NULL),
+(3, 'Smith & Co.', '555-123-4567', 'Eichenallee', 789, 'smith@example.com', NULL, NULL, NULL, 1),
+(4, 'Johnson Ltd.', '888-555-1234', 'Buchenweg', 101, 'johnson@example.com', NULL, NULL, NULL, NULL),
+(5, 'Doe Enterprises', '777-333-2222', 'Lindenstraße', 55, 'doe@example.com', NULL, NULL, NULL, NULL),
+(6, 'Tech Solutions', '111-222-3333', 'Ahornweg', 77, 'tech@example.com', NULL, NULL, NULL, 1),
+(7, 'Blue Widgets Inc.', '444-555-6666', 'Eschenweg', 22, 'blue@example.com', NULL, NULL, NULL, NULL),
+(8, 'Green Systems', '222-333-4444', 'Kiefernweg', 33, 'green@example.com', NULL, NULL, NULL, NULL),
+(9, 'Red Innovations', '666-777-8888', 'Birkenweg', 44, 'red@example.com', NULL, NULL, NULL, NULL),
+(10, 'Yellow Enterprises', '999-888-7777', 'Tannenweg', 66, 'yellow@example.com', NULL, NULL, NULL, NULL),
+(11, 'Purple Solutions', '777-999-1111', 'Ulmenweg', 99, 'purple@example.com', NULL, NULL, NULL, NULL),
+(12, 'Orange Widgets', '333-666-9999', 'Kastanienweg', 11, 'orange@example.com', NULL, NULL, NULL, NULL),
+(13, 'Brown Technologies', '444-222-1111', 'Erlenweg', 88, 'brown@example.com', NULL, NULL, NULL, NULL),
+(14, 'Silver Systems', '222-111-4444', 'Fichtenweg', 77, 'silver@example.com', NULL, NULL, NULL, NULL),
+(15, 'Gold Innovations', '555-444-3333', 'Akazienweg', 55, 'gold@example.com', NULL, NULL, NULL, NULL),
+(16, 'Platinum Enterprises', '888-777-6666', 'Hainweg', 33, 'platinum@example.com', NULL, NULL, NULL, NULL),
+(17, 'Diamond Corporation', '777-555-2222', 'Weidenweg', 22, 'diamond@example.com', NULL, NULL, NULL, NULL),
+(18, 'Pearl Solutions', '222-333-4444', 'Kirschweg', 66, 'pearl@example.com', NULL, NULL, NULL, NULL),
+(19, 'Ruby Widgets', '666-777-8888', 'Ebereschenweg', 44, 'ruby@example.com', NULL, NULL, NULL, NULL),
+(20, 'Emerald Systems', '555-999-1111', 'Schlehenweg', 99, 'emerald@example.com', NULL, NULL, NULL, NULL),
+(21, 'Sapphire Enterprises', '333-666-9999', 'Apfelweg', 11, 'sapphire@example.com', NULL, NULL, NULL, NULL),
+(22, 'Topaz Innovations', '777-111-4444', 'Brombeerweg', 88, 'topaz@example.com', NULL, NULL, NULL, NULL),
+(23, 'Amber Technologies', '222-888-3333', 'Holunderweg', 77, 'amber@example.com', NULL, NULL, NULL, NULL),
+(24, 'Crimson Widgets', '444-222-7777', 'Himbeerweg', 55, 'crimson@example.com', NULL, NULL, NULL, NULL),
+(25, 'Azure Systems', '999-777-4444', 'Stachelbeerweg', 33, 'azure@example.com', NULL, NULL, NULL, NULL),
+(26, 'Cobalt Corporation', '555-666-3333', 'Johannisbeerweg', 22, 'cobalt@example.com', NULL, NULL, NULL, NULL),
+(27, 'Indigo Solutions', '333-444-6666', 'Blaubeerweg', 66, 'indigo@example.com', NULL, NULL, NULL, NULL),
+(28, 'Magenta Enterprises', '666-555-8888', 'Preiselbeerweg', 44, 'magenta@example.com', NULL, NULL, NULL, NULL),
+(29, 'Violet Innovations', '222-888-1111', 'Waldweg', 99, 'violet@example.com', NULL, NULL, NULL, NULL);
+
 
 -- --------------------------------------------------------
 
