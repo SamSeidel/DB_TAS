@@ -351,8 +351,8 @@ ALTER TABLE `teilnehmer`
 --
 -- AUTO_INCREMENT für Tabelle `betrieb`
 --
---ALTER TABLE `betrieb`
- -- MODIFY `ID_Betrieb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+ALTER TABLE `betrieb`
+  MODIFY `ID_Betrieb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT für Tabelle `dozent`
@@ -380,8 +380,8 @@ ALTER TABLE `kurs_dozent`
 ALTER TABLE `kurs_dozentenrechnung`
   MODIFY `ID_DozentenRechnung` int(11) NOT NULL AUTO_INCREMENT;
 
-ALTER TABLE `kurs_teilnehmer`
-  MODIFY `ID_kurs_teilnehmer` int(11) NOT NULL AUTO_INCREMENT;
+--ALTER TABLE `kurs_teilnehmer`
+  --MODIFY `ID_kurs_teilnehmer` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT für Tabelle `rechnung`
 --
