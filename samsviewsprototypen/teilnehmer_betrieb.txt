@@ -14,3 +14,5 @@ SELECT
     b.Rechnungsmail AS Betrieb_
 FROM teilnehmer t
 JOIN betrieb b ON t.ID_Betrieb = b.ID_Betrieb;
+
+ö
