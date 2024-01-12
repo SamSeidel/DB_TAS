@@ -321,7 +321,7 @@
         </table>
         <br>
         <table style="width: 100%;">
-                    <h2 style="text-align: center; margin-top: -0.1%;" id="rechnungen"> Archivierte Dozentenrechnungen</h2>  
+                    <h2 style="text-align: center; margin-top: -0.1%;" id="doz_rechnungen"> Archivierte Dozentenrechnungen</h2>  
                     <th>Kürzel</th>
                     <th>Steuernummer</th>
                     <th>Vertragsgegenstand</th>

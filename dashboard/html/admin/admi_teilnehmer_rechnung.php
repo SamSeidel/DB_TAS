@@ -101,11 +101,12 @@
                         <td>
                             <select name="ID_Teilnehmer" class="edit">
                                  <?php 
-                                    $teilnehmer2 = $conn->prepare("SELECT ID_Teilnehmer, Vorname, Nachname FROM Teilnehmer");
+                                    $teilnehmer2 = $conn->prepare("SELECT ID_Teilnehmer, Vorname, Nachname, geloescht FROM Teilnehmer");
                                     $teilnehmer2->execute();
-                                    while($row = $teilnehmer2->fetch()) { ?>
+                                    while($row = $teilnehmer2->fetch()) {
+                                        if($row["geloescht"] == NULL) { ?>
                                     <option value="<?php echo $row["ID_Teilnehmer"]?>"> <?php echo $row["Vorname"] . " ".  $row["Nachname"]  ?></option>
-                                   <?php } ?>
+                                   <?php }} ?>
                                 </select>
                             </td>
                             <td> <input readonly placeholder="Automatisch"  type="text" class="edit"></td>

@@ -113,11 +113,12 @@
             <td> 
                 <select name="ID_Dozent2" class="edit">
                     <?php 
-                    $Kurs = $conn->prepare("SELECT ID_Dozent, Nachname FROM dozent");
+                    $Kurs = $conn->prepare("SELECT ID_Dozent, Nachname, geloescht FROM dozent");
                     $Kurs->execute();
-                    while($row = $Kurs->fetch()) { ?>
+                    while($row = $Kurs->fetch()) {
+                        if($row["geloescht"] == NULL) { ?>
                         <option value="<?php echo $row["ID_Dozent"]?>"><?php echo $row["Nachname"] ?></option>
-                    <?php } ?>
+                    <?php }} ?>
                 </select>
             </td>
             <td>
