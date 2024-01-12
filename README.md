@@ -18,6 +18,7 @@ Alle Modelle (ER-Modell, Anforderungsliste, Relationelles-Modell) befinden sich 
 - [X] Anforderungsliste
 - [X] Datenbank <br>
 - [X] Dokumentation (Robin)
+
 Die Scripte (PHP / javascript)
   - 1. [X] Grafische Oberfläche (Admin Dashboard)
   - 2. [X] Student
