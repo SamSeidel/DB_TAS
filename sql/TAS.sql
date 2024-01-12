@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 11. Jan 2024 um 19:03
+-- Erstellungszeit: 12. Jan 2024 um 17:16
 -- Server-Version: 10.4.28-MariaDB
 -- PHP-Version: 8.2.4
 
@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Datenbank: `tas`
 --
-USE tas;
+
 -- --------------------------------------------------------
 
 --
@@ -106,7 +106,6 @@ INSERT INTO `dozent` (`ID_Dozent`, `Anrede`, `Vorname`, `Nachname`, `Geburtsdatu
 (5, 'Herr', 'Andreas', 'Schulz', '1990-09-25', '777-333-2222', 'DE777333222', 'SCHU', 'Lindenstraße', 55, NULL, NULL, NULL, 0),
 (6, 'Herr', 'Markus', 'Koch', '1982-07-14', '111-222-3333', 'DE111222333', 'KOCH', 'Ahornweg', 77, NULL, NULL, NULL, 0),
 (7, 'Frau', 'Sabine', 'Fischer', '1986-04-02', '444-555-6666', 'DE444555666', 'FISC', 'Eschenweg', 22, NULL, NULL, NULL, 0),
-(8, 'Herr', 'Stefan', 'Huber', '1978-12-19', '222-333-4444', 'DE222333444', 'HUBE', 'Kiefernweg', 33, NULL, NULL, NULL, 1),
 (10, 'Frau', 'Julia', 'Hoffmann', '1991-06-07', '999-888-7777', 'DE999888777', 'HOFF', 'Tannenweg', 66, NULL, NULL, NULL, 0),
 (11, 'Herr', 'Matthias', 'Richter', '1984-02-12', '777-999-1111', 'DE777999111', 'RICH', 'Ulmenweg', 99, NULL, NULL, NULL, 0),
 (12, 'Herr', 'Johannes', 'Kramer', '1987-10-08', '333-666-9999', 'DE333666999', 'KRAM', 'Kastanienweg', 11, NULL, NULL, NULL, 0),
@@ -151,7 +150,6 @@ INSERT INTO `dozentenvertrag` (`ID_Honorarvertrag`, `Vertragsgegenstand`, `Vertr
 (15, 'Workshop Kunstgeschichte', '2024-04-10', '2024-07-10', '2000.00', 5, 1),
 (16, 'Sprachkurs Englisch', '2024-05-20', '2024-08-20', '3500.00', 6, 0),
 (17, 'Musikunterricht Klavier', '2024-06-15', '2024-09-15', '2800.00', 7, 0),
-(18, 'Sportkurs Fitness', '2024-07-05', '2024-10-05', '3200.00', 8, 0),
 (19, 'Kochkurs Italienisch', '2024-08-10', '2024-11-10', '2300.00', 10, 1);
 
 -- --------------------------------------------------------
@@ -434,6 +432,7 @@ ALTER TABLE `teilnehmer`
 -- Constraints der Tabelle `dozentenvertrag`
 --
 ALTER TABLE `dozentenvertrag`
+  ADD CONSTRAINT `ID_Dozent` FOREIGN KEY (`ID_Dozent`) REFERENCES `dozent` (`ID_Dozent`) ON DELETE CASCADE,
   ADD CONSTRAINT `dozentenvertrag_ibfk_1` FOREIGN KEY (`ID_Dozent`) REFERENCES `dozent` (`ID_Dozent`);
 
 --
