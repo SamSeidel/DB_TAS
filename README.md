@@ -7,7 +7,7 @@ Alle Modelle (ER-Modell, Anforderungsliste, Relationales-Modell) befinden sich i
 ## Mitglieder:
 * Sam Seidel
 * Jonas Burghaus
-* Linus Alexander Poop
+* Linus Poop
 * Luis Bregas
 * Robin Nachtigall
 * Collin David Klein
