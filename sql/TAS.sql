@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 12. Jan 2024 um 17:16
+-- Erstellungszeit: 12. Jan 2024 um 18:13
 -- Server-Version: 10.4.28-MariaDB
 -- PHP-Version: 8.2.4
 
@@ -155,6 +155,26 @@ INSERT INTO `dozentenvertrag` (`ID_Honorarvertrag`, `Vertragsgegenstand`, `Vertr
 -- --------------------------------------------------------
 
 --
+-- Stellvertreter-Struktur des Views `dozent_kurs`
+-- (Siehe unten für die tatsächliche Ansicht)
+--
+CREATE TABLE `dozent_kurs` (
+`Dozent_Anrede` varchar(32)
+,`Dozent_Vorname` varchar(128)
+,`Dozent_Nachname` varchar(128)
+,`Dozent_Telefonnummer` varchar(16)
+,`Dozent_Kürzel` varchar(32)
+,`Kurs_Kursnummer` int(11)
+,`Kurs_Kurstyp` varchar(64)
+,`Kurs_Raum` varchar(11)
+,`Kurs_Kursbeschreibung` varchar(1028)
+,`Kurs_KursBeginn` datetime
+,`Kurs_KursEnde` datetime
+);
+
+-- --------------------------------------------------------
+
+--
 -- Tabellenstruktur für Tabelle `kurs`
 --
 
@@ -206,6 +226,18 @@ CREATE TABLE `kurs_dozent` (
   `geloescht` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Daten für Tabelle `kurs_dozent`
+--
+
+INSERT INTO `kurs_dozent` (`Datum_Beginn`, `Datum_Ende`, `Anzahl_Einheiten`, `ID_Dozent`, `ID_Kurs`, `geloescht`) VALUES
+('2024-01-05', '2024-01-25', 69, 7, 19, 0),
+('2024-01-05', '2024-01-25', 69, 7, 19, 0),
+('2024-01-12', '2024-01-11', 1, 28, 16, 0),
+('2024-01-12', '2024-01-11', 1, 28, 16, 0),
+('2024-01-03', '2024-01-05', 2, 3, 12, 0),
+('2024-01-03', '2024-01-05', 2, 3, 12, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -236,6 +268,14 @@ CREATE TABLE `kurs_teilnehmer` (
   `geloescht` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Daten für Tabelle `kurs_teilnehmer`
+--
+
+INSERT INTO `kurs_teilnehmer` (`Anfangszeitpunkt`, `Endzeitpunkt`, `ID_Kurs`, `ID_Teilnehmer`, `geloescht`) VALUES
+('2024-01-18 18:09:17', '2024-01-06 18:09:17', 15, 110, 0),
+('2024-01-18 18:09:17', '2024-01-06 18:09:17', 15, 110, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -262,6 +302,24 @@ CREATE TABLE `rechnung` (
 INSERT INTO `rechnung` (`ID_Rechnung`, `RE_Nummer`, `Zahlungsfrist`, `Betrag`, `Bezahldatum`, `Bestellnummer`, `Mahnungsdatum`, `ID_Teilnehmer`, `ID_Kurs`, `geloescht`) VALUES
 (101, 'RE34567', '2024-01-27', 140, '0000-00-00', 'BN789', '2024-01-05', 101, 16, 0),
 (102, 'RE45678', '2024-01-28', 250, '0000-00-00', 'BN123', '2024-01-24', 99, 19, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Stellvertreter-Struktur des Views `rechnungen_details`
+-- (Siehe unten für die tatsächliche Ansicht)
+--
+CREATE TABLE `rechnungen_details` (
+`RE_Nummer` varchar(128)
+,`Zahlungsfrist` date
+,`Betrag` double
+,`Bezahldatum` date
+,`Bestellnummer` varchar(256)
+,`Teilnehmer_Vorname` varchar(64)
+,`Teilnehmer_Nachname` varchar(64)
+,`Kursnummer` int(11)
+,`Kurstyp` varchar(64)
+);
 
 -- --------------------------------------------------------
 
@@ -311,6 +369,83 @@ INSERT INTO `teilnehmer` (`ID_Teilnehmer`, `Anrede`, `Vorname`, `Nachname`, `Ema
 (108, 'Frau', 'Nadine', 'Fischer', 'nadine.fischer@example.com', '888888888', '1994-01-30', 'Hauptplatz', 52, 18, 76543, 'Hauptstadt', 'Deutschland', 1),
 (109, 'Herr', 'Matthias', 'Schreiber', 'matthias.schreiber@example.com', '555555555', '1983-09-10', 'Parkweg', 11, 19, 98765, 'Parkstadt', 'Deutschland', 0),
 (110, 'Frau', 'Julia', 'Lehmann', 'julia.lehmann@example.com', '999999999', '1990-06-25', 'Rosenstraße', 36, 20, 87654, 'Rosenstadt', 'Deutschland', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Stellvertreter-Struktur des Views `teilnehmer_betrieb`
+-- (Siehe unten für die tatsächliche Ansicht)
+--
+CREATE TABLE `teilnehmer_betrieb` (
+`Teilnehmer_Anrede` varchar(64)
+,`Teilnehmer_Vorname` varchar(64)
+,`Teilnehmer_Nachname` varchar(64)
+,`Teilnehmer_E-Mail` varchar(128)
+,`Teilnehmer_Telefonnummer` varchar(78)
+,`Teilnehmer_Strasse` varchar(64)
+,`Teilnehmer_Hausnummer` int(11)
+,`Betrieb_Name` varchar(256)
+,`Betrieb_Telefonnummer` varchar(16)
+,`Betrieb_Strasse` varchar(64)
+,`Betrieb_Hausnummer` int(11)
+,`Betrieb_` varchar(128)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stellvertreter-Struktur des Views `teilnehmer_kurse`
+-- (Siehe unten für die tatsächliche Ansicht)
+--
+CREATE TABLE `teilnehmer_kurse` (
+`Teilnehmer_Anrede` varchar(64)
+,`Teilnehmer_Vorname` varchar(64)
+,`Teilnehmer_Nachname` varchar(64)
+,`Teilnehmer_Email` varchar(128)
+,`Teilnehmer_Telefonnummer` varchar(78)
+,`Kurs_Kursnummer` int(11)
+,`Kurs_Kurstyp` varchar(64)
+,`Kurs_Raum` varchar(11)
+,`Kurs_Kursbeschreibung` varchar(1028)
+,`Kurs_KursBeginn` datetime
+,`Kurs_KursEnde` datetime
+);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur des Views `dozent_kurs`
+--
+DROP TABLE IF EXISTS `dozent_kurs`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dozent_kurs`  AS SELECT `d`.`Anrede` AS `Dozent_Anrede`, `d`.`Vorname` AS `Dozent_Vorname`, `d`.`Nachname` AS `Dozent_Nachname`, `d`.`Telefonnummer` AS `Dozent_Telefonnummer`, `d`.`Kürzel` AS `Dozent_Kürzel`, `k`.`Kursnummer` AS `Kurs_Kursnummer`, `k`.`Kurstyp` AS `Kurs_Kurstyp`, `k`.`Raum` AS `Kurs_Raum`, `k`.`Kursbeschreibung` AS `Kurs_Kursbeschreibung`, `k`.`KursBeginn` AS `Kurs_KursBeginn`, `k`.`KursEnde` AS `Kurs_KursEnde` FROM ((`kurs_dozent` `kd` join `dozent` `d` on(`kd`.`ID_Dozent` = `d`.`ID_Dozent`)) join `kurs` `k` on(`kd`.`ID_Kurs` = `k`.`ID_Kurs`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur des Views `rechnungen_details`
+--
+DROP TABLE IF EXISTS `rechnungen_details`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `rechnungen_details`  AS SELECT `r`.`RE_Nummer` AS `RE_Nummer`, `r`.`Zahlungsfrist` AS `Zahlungsfrist`, `r`.`Betrag` AS `Betrag`, `r`.`Bezahldatum` AS `Bezahldatum`, `r`.`Bestellnummer` AS `Bestellnummer`, `t`.`Vorname` AS `Teilnehmer_Vorname`, `t`.`Nachname` AS `Teilnehmer_Nachname`, `k`.`Kursnummer` AS `Kursnummer`, `k`.`Kurstyp` AS `Kurstyp` FROM ((`rechnung` `r` join `teilnehmer` `t` on(`r`.`ID_Teilnehmer` = `t`.`ID_Teilnehmer`)) join `kurs` `k` on(`r`.`ID_Kurs` = `k`.`ID_Kurs`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur des Views `teilnehmer_betrieb`
+--
+DROP TABLE IF EXISTS `teilnehmer_betrieb`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `teilnehmer_betrieb`  AS SELECT `t`.`Anrede` AS `Teilnehmer_Anrede`, `t`.`Vorname` AS `Teilnehmer_Vorname`, `t`.`Nachname` AS `Teilnehmer_Nachname`, `t`.`Email` AS `Teilnehmer_E-Mail`, `t`.`Telefonnummer` AS `Teilnehmer_Telefonnummer`, `t`.`Strasse` AS `Teilnehmer_Strasse`, `t`.`Hausnummer` AS `Teilnehmer_Hausnummer`, `b`.`BetriebsName` AS `Betrieb_Name`, `b`.`Telefonnummer` AS `Betrieb_Telefonnummer`, `b`.`Strasse` AS `Betrieb_Strasse`, `b`.`Hausnummer` AS `Betrieb_Hausnummer`, `b`.`Rechnungsmail` AS `Betrieb_` FROM (`teilnehmer` `t` join `betrieb` `b` on(`t`.`ID_Betrieb` = `b`.`ID_Betrieb`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur des Views `teilnehmer_kurse`
+--
+DROP TABLE IF EXISTS `teilnehmer_kurse`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `teilnehmer_kurse`  AS SELECT `t`.`Anrede` AS `Teilnehmer_Anrede`, `t`.`Vorname` AS `Teilnehmer_Vorname`, `t`.`Nachname` AS `Teilnehmer_Nachname`, `t`.`Email` AS `Teilnehmer_Email`, `t`.`Telefonnummer` AS `Teilnehmer_Telefonnummer`, `k`.`Kursnummer` AS `Kurs_Kursnummer`, `k`.`Kurstyp` AS `Kurs_Kurstyp`, `k`.`Raum` AS `Kurs_Raum`, `k`.`Kursbeschreibung` AS `Kurs_Kursbeschreibung`, `k`.`KursBeginn` AS `Kurs_KursBeginn`, `k`.`KursEnde` AS `Kurs_KursEnde` FROM ((`kurs_teilnehmer` `kt` join `teilnehmer` `t` on(`kt`.`ID_Teilnehmer` = `t`.`ID_Teilnehmer`)) join `kurs` `k` on(`kt`.`ID_Kurs` = `k`.`ID_Kurs`)) ;
 
 --
 -- Indizes der exportierten Tabellen
