@@ -1,8 +1,8 @@
 ![](taslogo/TASLogo.png)
 # TAS-Projekt Datenbanken HITO
-Das Gesamte Admin-Dashboard befindet sich under den Ordner `dashboard`.
-Die Datenbank befindet sich in den Ordner `sql`, in dieser datei sind zudem vorgefertigte Datensätze gespeichert.  
-Alle Modelle (ER-Modell, Anforderungsliste, Relationelles-Modell) befinden sich unter `Modelle`, alle dateien sind als .pdf sowie im orginalen format gespeichert.
+Der gesamte Code des Admin-Dashboards befindet sich in dem Ordner `dashboard`, um das Dashboard zu verwenden, muss man die Datei `tas_admin.html` öffnen welche sich unter `dashboard\html` befindet. <br><br>
+Die Datenbank befindet sich in dem Ordner `sql`, in dieser Datei sind zudem vorgefertigte Datensätze eingetragen.<br><br>
+Alle Modelle (ER-Modell, Anforderungsliste, Relationales-Modell) befinden sich in dem Ordner `Modelle`, alle Dateien sind als .pdf sowie im originalen Format gespeichert.<br><br>
 
 ## Mitglieder:
 * Sam Seidel
