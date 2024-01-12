@@ -1,5 +1,9 @@
 ![](taslogo/TASLogo.png)
 # TAS-Projekt Datenbanken HITO
+Das Gesamte Admin-Dashboard befindet sich under den Ordner `dashboard`.
+Die Datenbank befindet sich in den Ordner `sql`, in dieser datei sind zudem vorgefertigte Datensätze gespeichert.  
+Alle Modelle (ER-Modell, Anforderungsliste, Relationelles-Modell) befinden sich unter `Modelle`, alle dateien sind als .pdf sowie im orginalen format gespeichert.
+
 ## Mitglieder:
 * Sam Seidel
 * Jonas Burghaus
@@ -11,24 +15,13 @@
 ## Zu machen
 - [X] ER-Modell
 - [X] Rel. Datenbank Modell
-- [ ] Anforderungsliste
+- [X] Anforderungsliste
 - [X] Datenbank <br>
-- [ ] Dokumentation (Robin)
-      
-Die Scripte (PHP / javascript)
-  > - Eine Grafische oberfläche für alles machne. Für alle tabellen gibt es einzelne "tabs" z.b. Schüler. Auf diesen "tabs" kann man entweder einen neuen Schüler erstellen oder von einem Ausgewähltem schüler sich seine Rechnung als .PDF speichern kann usw. <br>
-  > - Einheitliches CSS overlay geschalten wenn die Scripte fertig sind. <br>
-  > - Zum Erstellen von .PDF dateien 'Ghostscript' verwenden
-  > - Wenn man z.b. auf dem "Tab" schüler ist kann man z.b. alle schüler einer klasse mit einem Dropdownmenü auswählen     von welchen man dann die Rechnung oder so herunterladen kann.  
- 
-  - 1. [ ] Grafische Oberfläche (Linus, ist irgendwie idfk)
-  - 2. [X] Student (Eitnragen, zuweisen von Kursen und Rechnungen, speichern) (Eintragen macht Sam, Verwaltung ist Fertig) (Rechung erstellen und in Tabellen ansicht anzeigen, Linus)
-  - 3. [ ] Rechnung (Erstellen und Speichern. Bestimmte abrufen und als .PDF speichern) (Luis)
-  - 4. [ ] Honorarvertrag (Erstellen, Speichern) (Jonas Erstellen ist fertig)
-  - 5. [ ] Dozent (Eintragen, zuweisen von Kursen und Rechnung speichern) (Jonas und Luis)
-  - 6. [ ] Anmeldeformular (Teilnehmer, Dozent, Kurs, Rechnung zuweisung) (Sam mit Sprung zum eintragen von Betrieben)
-  - 7. [ ] Gesamte UI machen für die Administration und die einzelnen anmeldungen für normale Menschen machen (Linus)
-<br>
+- [X] Dokumentation (Robin)
 
-> [!NOTE]
-> Alles im Klassentauschverzeichniss unter 'BEASTMODE' gespeichert, sowie auf GitHub 
+  - 1. [X] Grafische Oberfläche (Admin Dashboard)
+  - 2. [X] Student
+  - 3. [X] Rechnung (Erstellen und Speichern.)
+  - 4. [X] Honorarvertrag (Erstellen, Speichern)
+  - 5. [X] Dozent (Eintragen)
+<br>
