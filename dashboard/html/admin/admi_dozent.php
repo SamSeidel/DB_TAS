@@ -78,16 +78,19 @@
 
         if(!empty($_POST["add_dozent"])) {
             if ($_SERVER["REQUEST_METHOD"] == "POST") { 
-                $conn->prepare("INSERT INTO dozent (Anrede, Vorname, Nachname, Geburtsdatum, Telefonnummer, Steuernummer, Kürzel) 
+                
+                $stmt = $conn->prepare("INSERT INTO dozent (Anrede, Vorname, Nachname, Geburtsdatum, Telefonnummer, Steuernummer, Kürzel) 
                 VALUES (:anrede, :vorname, :nachname, :geburtsdatum, :telefonnummer, :steuernummer, :kuerzel)");
-                    $stmt->bindParam(':anrede', $_POST['Anrede']);
-                    $stmt->bindParam(':vorname', $_POST['Vorname']);
-                    $stmt->bindParam(':nachname', $_POST['Nachname']);
-                    $stmt->bindParam(':geburtsdatum', $_POST['Geburtsdatum']);
-                    $stmt->bindParam(':telefonnummer', $_POST['Telnummer']);
-                    $stmt->bindParam(':steuernummer', $_POST['Steuernummer']);
-                    $stmt->bindParam(':kuerzel', $_POST['Kuerzel']);
+            
+                $stmt->bindParam(':anrede', $_POST['Anrede']);
+                $stmt->bindParam(':vorname', $_POST['Vorname']);
+                $stmt->bindParam(':nachname', $_POST['Nachname']);
+                $stmt->bindParam(':geburtsdatum', $_POST['Geburtsdatum']);
+                $stmt->bindParam(':telefonnummer', $_POST['Telnummer']);
+                $stmt->bindParam(':steuernummer', $_POST['Steuernummer']);
+                $stmt->bindParam(':kuerzel', $_POST['Kuerzel']);
                 $stmt->execute();
+                header("Refresh: 0.1; url=$_SERVER[PHP_SELF]");
             }
         }
 
@@ -108,7 +111,6 @@
                     <th> Telefonnummer </th>
                     <th> Strasse </th>
                     <th> Hausnummer </th>
-                    <th></th>
                     <th></th>
                 <tr> 
                 <form action="<?= $_SERVER['PHP_SELF']?>" method="POST">
